@@ -92,20 +92,20 @@ struct SubscriptionDetailView: View {
                 EditSubscriptionView(subscription: subscription)
             }
             .confirmationDialog(
-                "Delete \(subscription.name)?",
+                String(format: String(localized: "subscription.delete.confirm"), subscription.name),
                 isPresented: $showDeleteConfirm,
                 titleVisibility: .visible
             ) {
-                Button("Delete", role: .destructive) {
+                Button(String(localized: "general.delete"), role: .destructive) {
                     Task {
                         try? await repository.delete(id: subscription.id)
                         deleteTrigger.toggle()
                         dismiss()
                     }
                 }
-                Button("Cancel", role: .cancel) {}
+                Button(String(localized: "general.cancel"), role: .cancel) {}
             } message: {
-                Text("All data for this subscription will be permanently deleted.")
+                Text(String(localized: "subscription.delete.permanent"))
             }
             .sensoryFeedback(.impact(.medium), trigger: deleteTrigger)
             .sensoryFeedback(.impact(.soft), trigger: inactivateTrigger)

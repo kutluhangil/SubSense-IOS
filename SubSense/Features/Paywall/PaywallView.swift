@@ -17,11 +17,11 @@ struct PaywallView: View {
     @State private var plansOpacity: Double = 0
 
     private let features: [(icon: String, color: Color, text: String)] = [
-        ("cpu.fill",               .brand,      "ai.insights.feature"),
-        ("message.fill",           .accent,     "ai.chat.feature"),
-        ("globe",                  .appInfo,    "price.comparison.feature"),
-        ("arrow.down.doc.fill",    .appSuccess, "csv.import.feature"),
-        ("headphones",             .appWarning, "priority.support.feature"),
+        ("cpu.fill",               .brand,      "paywall.feature.aiInsights"),
+        ("message.fill",           .accent,     "paywall.feature.chat"),
+        ("globe",                  .appInfo,    "paywall.feature.comparison"),
+        ("arrow.down.doc.fill",    .appSuccess, "paywall.feature.csvImport"),
+        ("headphones",             .appWarning, "paywall.feature.support"),
     ]
 
     var body: some View {
@@ -240,8 +240,8 @@ struct PaywallView: View {
                 plansOpacity = 1
             }
         }
-        .alert("Purchase Error", isPresented: $showError) {
-            Button("OK", role: .cancel) {}
+        .alert(String(localized: "paywall.error.purchaseFailed"), isPresented: $showError) {
+            Button(String(localized: "general.ok"), role: .cancel) {}
         } message: {
             Text(errorMessage)
         }

@@ -29,15 +29,15 @@ struct ServiceCatalogView: View {
                 if items.isEmpty {
                     VStack(spacing: AppSpacing.md) {
                         ProgressView()
-                        Text("Loading services…")
+                        Text(String(localized: "catalog.loading"))
                             .font(.appFootnote)
                             .foregroundStyle(.appTextMuted)
                     }
                 } else if sortedCategories.isEmpty {
                     EmptyState(
                         symbol: "magnifyingglass",
-                        title: "No Results",
-                        subtitle: "Try a different search term."
+                        title: String(localized: "catalog.noResults"),
+                        subtitle: String(localized: "catalog.noResults.subtitle")
                     )
                 } else {
                     catalog
@@ -45,7 +45,7 @@ struct ServiceCatalogView: View {
             }
             .navigationTitle(String(localized: "subscription.discover.title"))
             .navigationBarTitleDisplayMode(.inline)
-            .searchable(text: $searchText, prompt: "Search services")
+            .searchable(text: $searchText, prompt: String(localized: "catalog.search"))
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button(String(localized: "general.cancel")) { dismiss() }

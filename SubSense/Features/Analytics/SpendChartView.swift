@@ -15,6 +15,15 @@ enum TimeRange: String, CaseIterable {
         case .month12: return 12
         }
     }
+
+    var localizedTitle: String {
+        switch self {
+        case .month30: return String(localized: "analytics.range.30d")
+        case .month3:  return String(localized: "analytics.range.3m")
+        case .month6:  return String(localized: "analytics.range.6m")
+        case .month12: return String(localized: "analytics.range.12m")
+        }
+    }
 }
 
 struct MonthlyDataPoint: Identifiable {
@@ -35,12 +44,16 @@ struct SpendChartView: View {
         let monthsBack = selectedRange.months
         return (0..<monthsBack).reversed().map { offset in
             let date = calendar.date(byAdding: .month, value: -offset, to: today) ?? today
-            let base = subscriptions
-                .filter { $0.status != .inactive }
+            let amount = subscriptions
+                .filter { sub in
+                    guard sub.status != .inactive else { return false }
+                    guard let start = sub.startDate else { return true }
+                    return start <= date
+                }
                 .reduce(Decimal(0)) { sum, sub in
                     sum + currencyService.convert(sub.monthlyEquivalent, from: sub.currency, to: currency)
                 }
-            return MonthlyDataPoint(date: date, amount: base)
+            return MonthlyDataPoint(date: date, amount: amount)
         }
     }
 

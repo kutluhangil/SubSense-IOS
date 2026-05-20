@@ -38,7 +38,7 @@ struct AnalyticsView: View {
                             HStack(spacing: AppSpacing.sm) {
                                 ForEach(TimeRange.allCases, id: \.self) { range in
                                     FilterPill(
-                                        title: range.rawValue,
+                                        title: range.localizedTitle,
                                         isSelected: selectedRange == range
                                     ) {
                                         withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {

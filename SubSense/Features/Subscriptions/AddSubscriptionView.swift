@@ -62,11 +62,11 @@ struct AddSubscriptionView: View {
                     applyFromCatalog(item)
                 }
             }
-            .alert("Duplicate Subscription", isPresented: $showDuplicateAlert) {
-                Button("Add Anyway") { Task { await saveForced() } }
-                Button("Cancel", role: .cancel) {}
+            .alert(String(localized: "subscription.duplicate.title"), isPresented: $showDuplicateAlert) {
+                Button(String(localized: "subscription.duplicate.addAnyway")) { Task { await saveForced() } }
+                Button(String(localized: "general.cancel"), role: .cancel) {}
             } message: {
-                Text("A subscription with this name, price, and cycle already exists. Add anyway?")
+                Text(String(localized: "subscription.duplicate.message"))
             }
             .sensoryFeedback(.success, trigger: saveSuccessTrigger)
         }
@@ -85,7 +85,7 @@ struct AddSubscriptionView: View {
                 Button {
                     showCatalog = true
                 } label: {
-                    Text("See all")
+                    Text(String(localized: "subscription.seeAll"))
                         .font(.appCaption)
                         .foregroundStyle(.brand)
                 }
@@ -130,7 +130,7 @@ struct AddSubscriptionView: View {
                                 Image(systemName: "ellipsis")
                                     .foregroundStyle(.appTextMuted)
                             }
-                            Text("More")
+                            Text(String(localized: "subscription.more"))
                                 .font(.appCaption)
                                 .foregroundStyle(.appTextMuted)
                         }
@@ -224,7 +224,7 @@ struct AddSubscriptionView: View {
             }
 
             // Billing Cycle
-            formSection(title: "Billing Cycle") {
+            formSection(title: String(localized: "subscription.billingCycle")) {
                 Picker("Cycle", selection: $draft.cycle) {
                     Text(String(localized: "subscription.cycle.monthly")).tag(Subscription.Cycle.monthly)
                     Text(String(localized: "subscription.cycle.yearly")).tag(Subscription.Cycle.yearly)
@@ -250,10 +250,10 @@ struct AddSubscriptionView: View {
             formSection(title: String(localized: "subscription.remindMe")) {
                 HStack {
                     VStack(alignment: .leading, spacing: AppSpacing.xs) {
-                        Text("3 days before renewal")
+                        Text(String(localized: "subscription.reminder.label"))
                             .font(.appBody)
                             .foregroundStyle(.appTextPrimary)
-                        Text("You'll get a notification")
+                        Text(String(localized: "subscription.reminder.subtitle"))
                             .font(.appCaption)
                             .foregroundStyle(.appTextMuted)
                     }
@@ -270,7 +270,7 @@ struct AddSubscriptionView: View {
             formSection(title: "\(String(localized: "subscription.notes")) (\(String(localized: "general.optional")))") {
                 ZStack(alignment: .topLeading) {
                     if draft.notes.isEmpty {
-                        Text("Add any notes…")
+                        Text(String(localized: "subscription.notes.placeholder"))
                             .font(.appBody)
                             .foregroundStyle(.appTextMuted)
                             .padding(.horizontal, 5)
@@ -365,7 +365,7 @@ struct AddSubscriptionView: View {
         defer { isSaving = false }
         do {
             let sub = draft.toSubscription(userId: userId)
-            try await repository.add(sub)
+            try await repository.forceAdd(sub)
             RenewalScheduler.shared.schedule(sub)
             saveSuccessTrigger.toggle()
             dismiss()

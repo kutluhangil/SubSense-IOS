@@ -111,14 +111,14 @@ struct SubscriptionRowView: View {
             Button(role: .destructive) {
                 showDeleteConfirm = true
             } label: {
-                Label("Delete", systemImage: "trash")
+                Label(String(localized: "general.delete"), systemImage: "trash")
             }
         }
         .swipeActions(edge: .leading, allowsFullSwipe: true) {
             Button {
                 onMarkInactive()
             } label: {
-                Label("Deactivate", systemImage: "pause.circle")
+                Label(String(localized: "subscription.markInactive"), systemImage: "pause.circle")
             }
             .tint(.appTextMuted)
         }
@@ -127,30 +127,30 @@ struct SubscriptionRowView: View {
                 Button {
                     onEdit()
                 } label: {
-                    Label("Edit", systemImage: "pencil")
+                    Label(String(localized: "general.edit"), systemImage: "pencil")
                 }
             }
             Button {
                 onMarkInactive()
             } label: {
-                Label("Mark Inactive", systemImage: "pause.circle")
+                Label(String(localized: "subscription.markInactive"), systemImage: "pause.circle")
             }
             Divider()
             Button(role: .destructive) {
                 showDeleteConfirm = true
             } label: {
-                Label("Delete", systemImage: "trash")
+                Label(String(localized: "general.delete"), systemImage: "trash")
             }
         }
         .confirmationDialog(
-            "Delete \(subscription.name)?",
+            String(format: String(localized: "subscription.delete.confirm"), subscription.name),
             isPresented: $showDeleteConfirm,
             titleVisibility: .visible
         ) {
-            Button("Delete", role: .destructive) { onDelete() }
-            Button("Cancel", role: .cancel) {}
+            Button(String(localized: "general.delete"), role: .destructive) { onDelete() }
+            Button(String(localized: "general.cancel"), role: .cancel) {}
         } message: {
-            Text("This action cannot be undone.")
+            Text(String(localized: "subscription.delete.undone"))
         }
         .sensoryFeedback(.impact(.soft), trigger: showDeleteConfirm)
     }

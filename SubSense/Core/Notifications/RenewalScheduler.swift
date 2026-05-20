@@ -13,18 +13,20 @@ final class RenewalScheduler {
         for sub in enabled {
             notificationService.scheduleRenewal(for: sub)
         }
-        // Reload widget timelines
+        Task { await notificationService.refreshBadge() }
         WidgetCenter.shared.reloadAllTimelines()
     }
 
     func schedule(_ subscription: Subscription) {
         guard subscription.reminderEnabled else { return }
         notificationService.scheduleRenewal(for: subscription)
+        Task { await notificationService.refreshBadge() }
         WidgetCenter.shared.reloadAllTimelines()
     }
 
     func cancel(_ subscription: Subscription) {
         notificationService.cancelRenewal(for: subscription.id)
+        Task { await notificationService.refreshBadge() }
         WidgetCenter.shared.reloadAllTimelines()
     }
 }

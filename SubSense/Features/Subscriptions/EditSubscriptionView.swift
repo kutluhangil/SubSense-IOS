@@ -81,8 +81,8 @@ struct EditSubscriptionView: View {
         VStack(spacing: AppSpacing.xl) {
 
             // Name
-            fieldSection(label: "Name") {
-                TextField("Name", text: $draft.name)
+            fieldSection(label: String(localized: "subscription.name.label")) {
+                TextField(String(localized: "subscription.namePlaceholder"), text: $draft.name)
                     .textInputAutocapitalization(.words)
                     .font(.appBody)
                     .padding(AppSpacing.base)
@@ -149,8 +149,8 @@ struct EditSubscriptionView: View {
             }
 
             // Billing Cycle
-            fieldSection(label: "Billing Cycle") {
-                Picker("Cycle", selection: $draft.cycle) {
+            fieldSection(label: String(localized: "subscription.billingCycle")) {
+                Picker("", selection: $draft.cycle) {
                     Text(String(localized: "subscription.cycle.monthly")).tag(Subscription.Cycle.monthly)
                     Text(String(localized: "subscription.cycle.yearly")).tag(Subscription.Cycle.yearly)
                 }
@@ -175,10 +175,10 @@ struct EditSubscriptionView: View {
             fieldSection(label: String(localized: "subscription.remindMe")) {
                 HStack {
                     VStack(alignment: .leading, spacing: AppSpacing.xs) {
-                        Text("3 days before renewal")
+                        Text(String(localized: "subscription.reminder.label"))
                             .font(.appBody)
                             .foregroundStyle(.appTextPrimary)
-                        Text("You'll get a notification")
+                        Text(String(localized: "subscription.reminder.subtitle"))
                             .font(.appCaption)
                             .foregroundStyle(.appTextMuted)
                     }
@@ -195,7 +195,7 @@ struct EditSubscriptionView: View {
             fieldSection(label: "\(String(localized: "subscription.notes")) (\(String(localized: "general.optional")))") {
                 ZStack(alignment: .topLeading) {
                     if draft.notes.isEmpty {
-                        Text("Add any notes…")
+                        Text(String(localized: "subscription.notes.placeholder"))
                             .font(.appBody)
                             .foregroundStyle(.appTextMuted)
                             .padding(.horizontal, 5)

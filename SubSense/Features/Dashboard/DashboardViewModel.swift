@@ -21,17 +21,23 @@ final class DashboardViewModel {
         async let _ = currencyService.fetchRates()
     }
 
-    // MARK: - Previous month estimate
-    /// Approximates last month's total as 92% of current active subscriptions.
-    /// Replace with a real historical fetch when billing history is implemented.
-    func estimatePreviousMonth(subscriptions: [Subscription]) -> Decimal {
-        subscriptions
-            .filter { $0.status != .inactive }
-            .reduce(Decimal.zero) { $0 + $1.monthlyEquivalent }
-            * Decimal(string: "0.92")!
+    // MARK: - Previous month total
+    /// Calculates last month's total using subscription startDates.
+    /// Subscriptions with no startDate are assumed to have always been active.
+    func estimatePreviousMonth(subscriptions: [Subscription], currency: String, using service: CurrencyService) -> Decimal {
+        let lastMonth = Calendar.current.date(byAdding: .month, value: -1, to: Date()) ?? Date()
+        return subscriptions
+            .filter { sub in
+                guard sub.status != .inactive else { return false }
+                guard let start = sub.startDate else { return true }
+                return start <= lastMonth
+            }
+            .reduce(Decimal.zero) { sum, sub in
+                sum + service.convert(sub.monthlyEquivalent, from: sub.currency, to: currency)
+            }
     }
 
-    func updatePreviousMonth(subscriptions: [Subscription]) {
-        previousMonthTotal = estimatePreviousMonth(subscriptions: subscriptions)
+    func updatePreviousMonth(subscriptions: [Subscription], currency: String, using service: CurrencyService) {
+        previousMonthTotal = estimatePreviousMonth(subscriptions: subscriptions, currency: currency, using: service)
     }
 }

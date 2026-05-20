@@ -22,6 +22,29 @@ struct DashboardView: View {
                 ScrollView {
                     VStack(alignment: .leading, spacing: AppSpacing.xl) {
 
+                        // Error banner
+                        if repository.error != nil {
+                            HStack(spacing: AppSpacing.sm) {
+                                Image(systemName: "exclamationmark.triangle.fill")
+                                    .foregroundStyle(.appWarning)
+                                Text(String(localized: "dashboard.error"))
+                                    .font(.appFootnote)
+                                    .foregroundStyle(.appTextPrimary)
+                                Spacer()
+                            }
+                            .padding(AppSpacing.md)
+                            .background {
+                                RoundedRectangle(cornerRadius: AppRadius.card)
+                                    .fill(Color.appWarning.opacity(0.08))
+                                    .overlay {
+                                        RoundedRectangle(cornerRadius: AppRadius.card)
+                                            .strokeBorder(Color.appWarning.opacity(0.2), lineWidth: 1)
+                                    }
+                            }
+                            .padding(.horizontal, AppSpacing.base)
+                            .transition(.opacity.combined(with: .move(edge: .top)))
+                        }
+
                         // Stats card
                         StatsCardView(
                             monthlyTotal: repository.monthlyTotal,
@@ -81,7 +104,7 @@ struct DashboardView: View {
                         currencyService: currencyService,
                         userId: authStore.userID
                     )
-                    vm.updatePreviousMonth(subscriptions: repository.subscriptions)
+                    vm.updatePreviousMonth(subscriptions: repository.subscriptions, currency: baseCurrency, using: currencyService)
                 }
             }
             .navigationTitle(String(localized: "dashboard.title"))
@@ -109,7 +132,7 @@ struct DashboardView: View {
                     currencyService: currencyService,
                     userId: userId
                 )
-                vm.updatePreviousMonth(subscriptions: repository.subscriptions)
+                vm.updatePreviousMonth(subscriptions: repository.subscriptions, currency: baseCurrency, using: currencyService)
             }
         }
     }

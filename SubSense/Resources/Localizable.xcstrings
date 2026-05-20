@@ -1814,13 +1814,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "30D"
+            "value": "1 Month"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "30G"
+            "value": "1 Ay"
           }
         }
       }
@@ -1830,13 +1830,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "3M"
+            "value": "3 Months"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "3A"
+            "value": "3 Ay"
           }
         }
       }
@@ -1846,13 +1846,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "6M"
+            "value": "6 Months"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "6A"
+            "value": "6 Ay"
           }
         }
       }
@@ -1862,13 +1862,13 @@
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "12M"
+            "value": "12 Months"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "12A"
+            "value": "12 Ay"
           }
         }
       }
@@ -2685,6 +2685,214 @@
           "stringUnit": {
             "state": "translated",
             "value": "%1$@ %2$d gün içinde yenileniyor"
+          }
+        }
+      }
+    },
+    "paywall.feature.csvImport": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CSV Import"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CSV İçe Aktarma"
+          }
+        }
+      }
+    },
+    "paywall.error.purchaseFailed": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Purchase Error"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Satın Alma Hatası"
+          }
+        }
+      }
+    },
+    "general.ok": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamam"
+          }
+        }
+      }
+    },
+    "catalog.loading": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loading services…"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hizmetler yükleniyor…"
+          }
+        }
+      }
+    },
+    "catalog.noResults": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Results"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sonuç Bulunamadı"
+          }
+        }
+      }
+    },
+    "catalog.noResults.subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Try a different search term."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Farklı bir arama terimi deneyin."
+          }
+        }
+      }
+    },
+    "catalog.search": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search services"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hizmet ara"
+          }
+        }
+      }
+    },
+    "dashboard.error": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Failed to load subscriptions"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abonelikler yüklenemedi"
+          }
+        }
+      }
+    },
+    "subscription.delete.confirm": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete %@?"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ silinsin mi?"
+          }
+        }
+      }
+    },
+    "subscription.delete.undone": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This action cannot be undone."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu işlem geri alınamaz."
+          }
+        }
+      }
+    },
+    "subscription.delete.permanent": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All data for this subscription will be permanently deleted."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu aboneliğe ait tüm veriler kalıcı olarak silinecektir."
+          }
+        }
+      }
+    },
+    "subscription.billingCycle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Billing Cycle"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fatura Döngüsü"
+          }
+        }
+      }
+    },
+    "subscription.name.label": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Name"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ad"
           }
         }
       }

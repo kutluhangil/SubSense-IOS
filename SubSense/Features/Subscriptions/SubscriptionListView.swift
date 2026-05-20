@@ -11,30 +11,33 @@ struct SubscriptionListView: View {
     @State private var showAdd = false
     @State private var deleteTrigger = false
     @State private var inactivateTrigger = false
+    @State private var isLoadingInactive = false
 
     // MARK: - Filter
-    enum FilterOption: String, CaseIterable, Identifiable {
-        case all      = "All"
-        case active   = "Active"
-        case trial    = "Trial"
-        case inactive = "Inactive"
-        var id: String { rawValue }
+
+    enum FilterOption: CaseIterable, Identifiable {
+        case all, active, trial, inactive
+        var id: Self { self }
+
+        var localizedTitle: String {
+            switch self {
+            case .all:      return String(localized: "subscription.filter.all")
+            case .active:   return String(localized: "subscription.status.active")
+            case .trial:    return String(localized: "subscription.status.trial")
+            case .inactive: return String(localized: "subscription.status.inactive")
+            }
+        }
     }
 
     private var baseCurrency: String { profileRepo.profile?.baseCurrency ?? "USD" }
 
     private var filtered: [Subscription] {
-        var subs = repository.subscriptions
+        let subs: [Subscription]
         switch selectedFilter {
-        case .all:
-            subs = subs.filter { $0.status != .inactive }
-        case .active:
-            subs = subs.filter { $0.status == .active }
-        case .trial:
-            subs = subs.filter { $0.status == .trial }
-        case .inactive:
-            // inactive list requires a separate fetch — for now use cached
-            subs = repository.subscriptions.filter { $0.status == .inactive }
+        case .all:      subs = repository.subscriptions
+        case .active:   subs = repository.subscriptions.filter { $0.status == .active }
+        case .trial:    subs = repository.subscriptions.filter { $0.status == .trial }
+        case .inactive: subs = repository.inactiveSubscriptions
         }
         guard !searchText.isEmpty else { return subs }
         return subs.filter { $0.name.localizedCaseInsensitiveContains(searchText) }
@@ -42,19 +45,26 @@ struct SubscriptionListView: View {
 
     private var sections: [(title: String, subs: [Subscription])] {
         if selectedFilter != .all {
-            return [(title: selectedFilter.rawValue, subs: filtered)]
+            return [(title: selectedFilter.localizedTitle, subs: filtered)]
         }
         let expiring = filtered.filter { $0.status == .expiring }
         let active   = filtered.filter { $0.status == .active }
         let trial    = filtered.filter { $0.status == .trial }
         var result: [(String, [Subscription])] = []
-        if !expiring.isEmpty { result.append(("Expiring Soon", expiring)) }
-        if !active.isEmpty   { result.append(("Active — \(active.count)", active)) }
-        if !trial.isEmpty    { result.append(("Trial — \(trial.count)", trial)) }
+        if !expiring.isEmpty {
+            result.append((String(localized: "subscription.section.expiringSoon"), expiring))
+        }
+        if !active.isEmpty {
+            result.append((String(format: String(localized: "subscription.section.active"), active.count), active))
+        }
+        if !trial.isEmpty {
+            result.append((String(format: String(localized: "subscription.section.trial"), trial.count), trial))
+        }
         return result
     }
 
     // MARK: - Body
+
     var body: some View {
         NavigationStack {
             ZStack {
@@ -62,7 +72,7 @@ struct SubscriptionListView: View {
 
                 if repository.isLoading && repository.subscriptions.isEmpty {
                     skeletonView
-                } else if filtered.isEmpty && !repository.isLoading {
+                } else if filtered.isEmpty && !repository.isLoading && !isLoadingInactive {
                     EmptyState(
                         symbol: "creditcard.fill",
                         title: String(localized: "subscription.empty.title"),
@@ -79,9 +89,7 @@ struct SubscriptionListView: View {
             .searchable(text: $searchText, prompt: String(localized: "subscription.search"))
             .toolbar {
                 ToolbarItem(placement: .primaryAction) {
-                    Button {
-                        showAdd = true
-                    } label: {
+                    Button { showAdd = true } label: {
                         Image(systemName: "plus.circle.fill")
                             .font(.title2)
                             .foregroundStyle(.brand)
@@ -91,12 +99,8 @@ struct SubscriptionListView: View {
                     filterPills
                 }
             }
-            .sheet(isPresented: $showAdd) {
-                AddSubscriptionView()
-            }
-            .sheet(item: $editTarget) { sub in
-                EditSubscriptionView(subscription: sub)
-            }
+            .sheet(isPresented: $showAdd) { AddSubscriptionView() }
+            .sheet(item: $editTarget) { sub in EditSubscriptionView(subscription: sub) }
             .sensoryFeedback(.impact(.medium), trigger: deleteTrigger)
             .sensoryFeedback(.impact(.soft), trigger: inactivateTrigger)
             .task {
@@ -104,14 +108,21 @@ struct SubscriptionListView: View {
                 try? await profileRepo.fetch(userId: uid)
                 await repository.fetchAll(userId: uid)
             }
+            .onChange(of: selectedFilter) { _, new in
+                if new == .inactive {
+                    Task { await loadInactive() }
+                }
+            }
             .refreshable {
                 guard let uid = authStore.userID else { return }
                 await repository.fetchAll(userId: uid)
+                if selectedFilter == .inactive { await loadInactive() }
             }
         }
     }
 
     // MARK: - List
+
     private var listContent: some View {
         ScrollView {
             LazyVStack(alignment: .leading, spacing: AppSpacing.sm) {
@@ -152,12 +163,13 @@ struct SubscriptionListView: View {
     }
 
     // MARK: - Filter Pills
+
     private var filterPills: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: AppSpacing.sm) {
                 ForEach(FilterOption.allCases) { option in
                     FilterPill(
-                        title: option.rawValue,
+                        title: option.localizedTitle,
                         isSelected: selectedFilter == option
                     ) {
                         withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
@@ -171,6 +183,7 @@ struct SubscriptionListView: View {
     }
 
     // MARK: - Skeleton
+
     private var skeletonView: some View {
         ScrollView {
             VStack(spacing: AppSpacing.sm) {
@@ -185,9 +198,19 @@ struct SubscriptionListView: View {
             .padding(.top, AppSpacing.xl)
         }
     }
+
+    // MARK: - Load inactive
+
+    private func loadInactive() async {
+        guard let uid = authStore.userID else { return }
+        isLoadingInactive = true
+        defer { isLoadingInactive = false }
+        try? await repository.fetchInactive(userId: uid)
+    }
 }
 
 // MARK: - Filter Pill
+
 struct FilterPill: View {
     let title: String
     let isSelected: Bool

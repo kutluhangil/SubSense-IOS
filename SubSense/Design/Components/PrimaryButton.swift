@@ -6,8 +6,6 @@ struct PrimaryButton: View {
     var isDisabled: Bool = false
     let action: () -> Void
 
-    @State private var isPressed = false
-
     var body: some View {
         Button(action: {
             guard !isLoading && !isDisabled else { return }
@@ -41,13 +39,17 @@ struct PrimaryButton: View {
                     )
             }
         }
+        .buttonStyle(PressScaleButtonStyle())
         .disabled(isLoading || isDisabled)
         .opacity(isDisabled ? 0.6 : 1.0)
-        .scaleEffect(isPressed ? 0.97 : 1.0)
-        .animation(.spring(response: 0.4, dampingFraction: 0.8), value: isPressed)
-        .sensoryFeedback(.impact(.soft), trigger: isPressed)
-        ._onButtonGesture(pressing: { pressing in
-            isPressed = pressing
-        }, perform: {})
+    }
+}
+
+private struct PressScaleButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .scaleEffect(configuration.isPressed ? 0.97 : 1.0)
+            .animation(.spring(response: 0.3, dampingFraction: 0.8), value: configuration.isPressed)
+            .sensoryFeedback(.impact(.soft), trigger: configuration.isPressed)
     }
 }

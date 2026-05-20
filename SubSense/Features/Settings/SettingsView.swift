@@ -1,4 +1,5 @@
 import SwiftUI
+import StoreKit
 
 struct SettingsView: View {
     @Environment(AuthStore.self) private var authStore
@@ -6,7 +7,10 @@ struct SettingsView: View {
     @AppStorage("appColorScheme") private var colorSchemePreference = "system"
     @State private var showSignOutConfirm = false
     @State private var showDeleteAccountConfirm = false
+    @State private var showPaywall = false
+    @State private var showCurrencyPicker = false
     @State private var signOutTrigger = false
+    @State private var isUpdatingProfile = false
 
     var body: some View {
         NavigationStack {
@@ -14,19 +18,46 @@ struct SettingsView: View {
                 Color.appBackground.ignoresSafeArea()
                 List {
                     // Account
-                    Section {
-                        accountRow
-                    }
+                    Section { accountRow }
 
                     // Preferences
                     Section(String(localized: "settings.preferences")) {
                         // Currency
-                        HStack {
-                            Label(String(localized: "settings.currency"), systemImage: "dollarsign.circle")
-                                .foregroundStyle(.appTextPrimary)
-                            Spacer()
-                            Text(profileRepo.profile?.baseCurrency ?? "USD")
-                                .foregroundStyle(.appTextMuted)
+                        Button {
+                            showCurrencyPicker = true
+                        } label: {
+                            HStack {
+                                Label(String(localized: "settings.currency"), systemImage: "dollarsign.circle")
+                                    .foregroundStyle(.appTextPrimary)
+                                Spacer()
+                                Text(profileRepo.profile?.baseCurrency ?? "USD")
+                                    .foregroundStyle(.appTextMuted)
+                                Image(systemName: "chevron.right")
+                                    .font(.appCaption)
+                                    .foregroundStyle(.appTextMuted)
+                            }
+                        }
+                        .buttonStyle(.plain)
+
+                        // Language
+                        if let profile = profileRepo.profile {
+                            HStack {
+                                Label(String(localized: "settings.language"), systemImage: "globe")
+                                    .foregroundStyle(.appTextPrimary)
+                                Spacer()
+                                Picker("", selection: Binding(
+                                    get: { profile.preferredLanguage },
+                                    set: { newLang in
+                                        Task { await updateLanguage(newLang) }
+                                    }
+                                )) {
+                                    ForEach(Profile.Language.allCases, id: \.self) { lang in
+                                        Text(lang.displayName).tag(lang)
+                                    }
+                                }
+                                .pickerStyle(.menu)
+                                .labelsHidden()
+                            }
                         }
 
                         // Appearance
@@ -46,34 +77,50 @@ struct SettingsView: View {
 
                     // Plan
                     Section(String(localized: "settings.plan")) {
-                        HStack {
-                            Label(
-                                profileRepo.isPro ? "SubSense Pro" : "Free Plan",
-                                systemImage: profileRepo.isPro ? "crown.fill" : "person.fill"
-                            )
-                            .foregroundStyle(profileRepo.isPro ? .accent : .appTextPrimary)
-                            Spacer()
-                            if !profileRepo.isPro {
-                                Text(String(localized: "settings.upgrade"))
-                                    .font(.appCaption.weight(.semibold))
-                                    .foregroundStyle(.brand)
+                        Button {
+                            if !profileRepo.isPro { showPaywall = true }
+                        } label: {
+                            HStack {
+                                Label(
+                                    profileRepo.isPro ? "SubSense Pro" : String(localized: "settings.freePlan"),
+                                    systemImage: profileRepo.isPro ? "crown.fill" : "person.fill"
+                                )
+                                .foregroundStyle(profileRepo.isPro ? .accent : .appTextPrimary)
+                                Spacer()
+                                if !profileRepo.isPro {
+                                    Text(String(localized: "settings.upgrade"))
+                                        .font(.appCaption.weight(.semibold))
+                                        .foregroundStyle(.brand)
+                                } else {
+                                    Image(systemName: "checkmark.circle.fill")
+                                        .foregroundStyle(.appSuccess)
+                                }
                             }
                         }
-                        Button(String(localized: "settings.restorePurchases")) {}
-                            .foregroundStyle(.brand)
+                        .buttonStyle(.plain)
+
+                        Button(String(localized: "settings.restorePurchases")) {
+                            Task { await restorePurchases() }
+                        }
+                        .foregroundStyle(.brand)
                     }
 
                     // Support
                     Section(String(localized: "settings.support")) {
-                        Link(String(localized: "settings.helpCenter"), destination: URL(string: "https://subsense.app/help")!)
-                        Button(String(localized: "settings.rateApp")) {}
-                            .foregroundStyle(.brand)
+                        Link(String(localized: "settings.helpCenter"),
+                             destination: URL(string: "https://subsense.app/help")!)
+                        Button(String(localized: "settings.rateApp")) {
+                            requestAppReview()
+                        }
+                        .foregroundStyle(.brand)
                     }
 
                     // Legal
                     Section(String(localized: "settings.legal")) {
-                        Link(String(localized: "settings.privacyPolicy"), destination: URL(string: "https://subsense.app/privacy")!)
-                        Link(String(localized: "settings.termsOfService"), destination: URL(string: "https://subsense.app/terms")!)
+                        Link(String(localized: "settings.privacyPolicy"),
+                             destination: URL(string: "https://subsense.app/privacy")!)
+                        Link(String(localized: "settings.termsOfService"),
+                             destination: URL(string: "https://subsense.app/terms")!)
                     }
 
                     // Account actions
@@ -81,12 +128,14 @@ struct SettingsView: View {
                         Button(role: .destructive) {
                             showSignOutConfirm = true
                         } label: {
-                            Label(String(localized: "settings.signOut"), systemImage: "rectangle.portrait.and.arrow.right")
+                            Label(String(localized: "settings.signOut"),
+                                  systemImage: "rectangle.portrait.and.arrow.right")
                         }
                         Button(role: .destructive) {
                             showDeleteAccountConfirm = true
                         } label: {
-                            Label(String(localized: "settings.deleteAccount"), systemImage: "trash")
+                            Label(String(localized: "settings.deleteAccount"),
+                                  systemImage: "trash")
                         }
                     }
                 }
@@ -95,22 +144,33 @@ struct SettingsView: View {
             }
             .navigationTitle(String(localized: "settings.title"))
             .navigationBarTitleDisplayMode(.large)
-            .confirmationDialog("Sign out?", isPresented: $showSignOutConfirm) {
-                Button("Sign Out", role: .destructive) {
+            .sheet(isPresented: $showCurrencyPicker) {
+                CurrencyPickerSheet(
+                    selectedCurrency: Binding(
+                        get: { profileRepo.profile?.baseCurrency ?? "USD" },
+                        set: { newCurrency in Task { await updateCurrency(newCurrency) } }
+                    ),
+                    isPresented: $showCurrencyPicker
+                )
+                .presentationDetents([.medium, .large])
+            }
+            .sheet(isPresented: $showPaywall) { PaywallView() }
+            .confirmationDialog(String(localized: "settings.signOut.confirm"), isPresented: $showSignOutConfirm) {
+                Button(String(localized: "settings.signOut"), role: .destructive) {
                     Task {
                         try? await authStore.signOut()
                         signOutTrigger.toggle()
                     }
                 }
-                Button("Cancel", role: .cancel) {}
+                Button(String(localized: "general.cancel"), role: .cancel) {}
             }
-            .confirmationDialog("Delete account?", isPresented: $showDeleteAccountConfirm) {
-                Button("Delete Account", role: .destructive) {
+            .confirmationDialog(String(localized: "settings.deleteAccount.confirm"), isPresented: $showDeleteAccountConfirm) {
+                Button(String(localized: "settings.deleteAccount"), role: .destructive) {
                     Task { try? await authStore.deleteAccount() }
                 }
-                Button("Cancel", role: .cancel) {}
+                Button(String(localized: "general.cancel"), role: .cancel) {}
             } message: {
-                Text("This permanently deletes all your data and cannot be undone.")
+                Text(String(localized: "settings.deleteAccount.message"))
             }
             .sensoryFeedback(.impact(.medium), trigger: signOutTrigger)
             .task {
@@ -120,6 +180,8 @@ struct SettingsView: View {
             }
         }
     }
+
+    // MARK: - Account row
 
     private var accountRow: some View {
         HStack(spacing: AppSpacing.md) {
@@ -132,7 +194,7 @@ struct SettingsView: View {
                     .foregroundStyle(.brand)
             }
             VStack(alignment: .leading, spacing: AppSpacing.xs) {
-                Text(profileRepo.profile?.displayName ?? "Account")
+                Text(profileRepo.profile?.displayName ?? String(localized: "settings.account"))
                     .font(.appCallout)
                     .foregroundStyle(.appTextPrimary)
                 if let email = authStore.userEmail {
@@ -142,6 +204,35 @@ struct SettingsView: View {
                 }
             }
         }
+    }
+
+    // MARK: - Actions
+
+    private func restorePurchases() async {
+        let storeKit = StoreKitService()
+        await storeKit.restorePurchases()
+        if let uid = authStore.userID {
+            try? await profileRepo.fetch(userId: uid)
+        }
+    }
+
+    private func requestAppReview() {
+        guard let scene = UIApplication.shared.connectedScenes
+            .first(where: { $0.activationState == .foregroundActive }) as? UIWindowScene
+        else { return }
+        AppStore.requestReview(in: scene)
+    }
+
+    private func updateCurrency(_ currency: String) async {
+        guard var profile = profileRepo.profile else { return }
+        profile.baseCurrency = currency
+        try? await profileRepo.update(profile)
+    }
+
+    private func updateLanguage(_ language: Profile.Language) async {
+        guard var profile = profileRepo.profile else { return }
+        profile.preferredLanguage = language
+        try? await profileRepo.update(profile)
     }
 }
 

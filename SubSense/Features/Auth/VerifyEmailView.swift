@@ -9,7 +9,7 @@ struct VerifyEmailView: View {
     @State private var isRefreshing = false
     @State private var isResending = false
     @State private var resendCooldown = 0
-    @State private var resendTimer: Timer?
+    @State private var resendTask: Task<Void, Never>?
     @State private var showError = false
     @State private var errorMessage = ""
 
@@ -181,7 +181,7 @@ struct VerifyEmailView: View {
             }
         }
         .onDisappear {
-            resendTimer?.invalidate()
+            resendTask?.cancel()
         }
     }
 
@@ -215,13 +215,12 @@ struct VerifyEmailView: View {
 
     private func startResendCooldown() {
         resendCooldown = 60
-        resendTimer?.invalidate()
-        resendTimer = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { timer in
-            if resendCooldown > 0 {
-                resendCooldown -= 1
-            } else {
-                timer.invalidate()
-                resendTimer = nil
+        resendTask?.cancel()
+        resendTask = Task {
+            for remaining in stride(from: 59, through: 0, by: -1) {
+                try? await Task.sleep(for: .seconds(1))
+                guard !Task.isCancelled else { return }
+                await MainActor.run { resendCooldown = remaining }
             }
         }
     }

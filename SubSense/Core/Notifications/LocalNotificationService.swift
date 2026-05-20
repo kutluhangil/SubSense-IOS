@@ -38,7 +38,6 @@ final class LocalNotificationService {
         content.body = String(format: NSLocalizedString("notifications.renewal", comment: ""),
                               subscription.name, daysBefore)
         content.sound = .default
-        content.badge = 1
         content.userInfo = ["subscriptionId": subscription.id.uuidString]
 
         let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: false)
@@ -63,5 +62,10 @@ final class LocalNotificationService {
     func scheduledNotificationCount() async -> Int {
         let pending = await UNUserNotificationCenter.current().pendingNotificationRequests()
         return pending.count
+    }
+
+    func refreshBadge() async {
+        let count = await scheduledNotificationCount()
+        await UNUserNotificationCenter.current().setBadgeCount(count)
     }
 }
