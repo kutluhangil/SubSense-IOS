@@ -1,0 +1,35 @@
+# Xcode
+*.xcuserstate
+xcuserdata/
+DerivedData/
+*.moved-aside
+*.xccheckout
+*.xcscmblueprint
+
+# SwiftPM
+.build/
+.swiftpm/
+*.resolved
+
+# Secrets - NEVER commit
+SubSense/App/Config/Config.plist
+
+# macOS
+.DS_Store
+*.swp
+Thumbs.db
+
+# CocoaPods (not used but just in case)
+Pods/
+Podfile.lock
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Build artifacts
+*.ipa
+*.dSYM.zip
+*.dSYM

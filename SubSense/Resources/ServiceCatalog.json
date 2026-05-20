@@ -1,0 +1,650 @@
+[
+  {
+    "id": "netflix",
+    "name": "Netflix",
+    "category": "entertainment",
+    "type": "Streaming",
+    "brandColor": "#E50914",
+    "logoSymbol": "play.tv.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 15.99, "yearly": null },
+      "TR": { "currency": "TRY", "monthly": 229.99, "yearly": null }
+    }
+  },
+  {
+    "id": "disney-plus",
+    "name": "Disney+",
+    "category": "entertainment",
+    "type": "Streaming",
+    "brandColor": "#113CCF",
+    "logoSymbol": "sparkles.tv.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 13.99, "yearly": 139.99 },
+      "TR": { "currency": "TRY", "monthly": 149.99, "yearly": 1499.99 }
+    }
+  },
+  {
+    "id": "hbo-max",
+    "name": "HBO Max",
+    "category": "entertainment",
+    "type": "Streaming",
+    "brandColor": "#5822A9",
+    "logoSymbol": "play.rectangle.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 15.99, "yearly": 139.99 },
+      "TR": { "currency": "TRY", "monthly": 79.99, "yearly": null }
+    }
+  },
+  {
+    "id": "hulu",
+    "name": "Hulu",
+    "category": "entertainment",
+    "type": "Streaming",
+    "brandColor": "#1CE783",
+    "logoSymbol": "play.circle.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 7.99, "yearly": null },
+      "TR": { "currency": "USD", "monthly": 7.99, "yearly": null }
+    }
+  },
+  {
+    "id": "amazon-prime-video",
+    "name": "Amazon Prime Video",
+    "category": "entertainment",
+    "type": "Streaming",
+    "brandColor": "#00A8E1",
+    "logoSymbol": "play.square.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 8.99, "yearly": null },
+      "TR": { "currency": "TRY", "monthly": 39.99, "yearly": null }
+    }
+  },
+  {
+    "id": "apple-tv-plus",
+    "name": "Apple TV+",
+    "category": "entertainment",
+    "type": "Streaming",
+    "brandColor": "#000000",
+    "logoSymbol": "appletv.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 9.99, "yearly": 99.99 },
+      "TR": { "currency": "TRY", "monthly": 89.99, "yearly": 899.99 }
+    }
+  },
+  {
+    "id": "paramount-plus",
+    "name": "Paramount+",
+    "category": "entertainment",
+    "type": "Streaming",
+    "brandColor": "#0064FF",
+    "logoSymbol": "mountain.2.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 7.99, "yearly": 59.99 },
+      "TR": { "currency": "USD", "monthly": 7.99, "yearly": null }
+    }
+  },
+  {
+    "id": "peacock",
+    "name": "Peacock",
+    "category": "entertainment",
+    "type": "Streaming",
+    "brandColor": "#000000",
+    "logoSymbol": "peacock",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 7.99, "yearly": 79.99 },
+      "TR": { "currency": "USD", "monthly": 7.99, "yearly": null }
+    }
+  },
+  {
+    "id": "youtube-premium",
+    "name": "YouTube Premium",
+    "category": "entertainment",
+    "type": "Streaming",
+    "brandColor": "#FF0000",
+    "logoSymbol": "play.rectangle.on.rectangle.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 13.99, "yearly": 139.99 },
+      "TR": { "currency": "TRY", "monthly": 99.99, "yearly": null }
+    }
+  },
+  {
+    "id": "crunchyroll",
+    "name": "Crunchyroll",
+    "category": "entertainment",
+    "type": "Streaming",
+    "brandColor": "#F78B24",
+    "logoSymbol": "play.tv",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 7.99, "yearly": 79.99 },
+      "TR": { "currency": "TRY", "monthly": 49.99, "yearly": null }
+    }
+  },
+  {
+    "id": "blutv",
+    "name": "BluTV",
+    "category": "entertainment",
+    "type": "Streaming",
+    "brandColor": "#0047FF",
+    "logoSymbol": "play.circle",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 4.99, "yearly": null },
+      "TR": { "currency": "TRY", "monthly": 99.99, "yearly": 899.99 }
+    }
+  },
+  {
+    "id": "exxen",
+    "name": "Exxen",
+    "category": "entertainment",
+    "type": "Streaming",
+    "brandColor": "#FF6B00",
+    "logoSymbol": "tv.fill",
+    "defaultPricing": {
+      "US": { "currency": "TRY", "monthly": 89.99, "yearly": null },
+      "TR": { "currency": "TRY", "monthly": 89.99, "yearly": 899.99 }
+    }
+  },
+  {
+    "id": "spotify",
+    "name": "Spotify",
+    "category": "music",
+    "type": "Music",
+    "brandColor": "#1DB954",
+    "logoSymbol": "music.note",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 10.99, "yearly": null },
+      "TR": { "currency": "TRY", "monthly": 59.99, "yearly": null }
+    }
+  },
+  {
+    "id": "apple-music",
+    "name": "Apple Music",
+    "category": "music",
+    "type": "Music",
+    "brandColor": "#FA243C",
+    "logoSymbol": "music.quarternote.3",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 10.99, "yearly": 109.99 },
+      "TR": { "currency": "TRY", "monthly": 54.99, "yearly": 549.99 }
+    }
+  },
+  {
+    "id": "tidal",
+    "name": "Tidal",
+    "category": "music",
+    "type": "Music",
+    "brandColor": "#000000",
+    "logoSymbol": "waveform",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 10.99, "yearly": null },
+      "TR": { "currency": "USD", "monthly": 10.99, "yearly": null }
+    }
+  },
+  {
+    "id": "deezer",
+    "name": "Deezer",
+    "category": "music",
+    "type": "Music",
+    "brandColor": "#FF0092",
+    "logoSymbol": "headphones",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 10.99, "yearly": null },
+      "TR": { "currency": "TRY", "monthly": 39.99, "yearly": null }
+    }
+  },
+  {
+    "id": "amazon-music",
+    "name": "Amazon Music",
+    "category": "music",
+    "type": "Music",
+    "brandColor": "#00A8E1",
+    "logoSymbol": "music.mic",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 10.99, "yearly": 104.99 },
+      "TR": { "currency": "TRY", "monthly": 29.99, "yearly": null }
+    }
+  },
+  {
+    "id": "soundcloud-go",
+    "name": "SoundCloud Go+",
+    "category": "music",
+    "type": "Music",
+    "brandColor": "#FF5500",
+    "logoSymbol": "waveform.path",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 9.99, "yearly": null },
+      "TR": { "currency": "USD", "monthly": 9.99, "yearly": null }
+    }
+  },
+  {
+    "id": "audible",
+    "name": "Audible",
+    "category": "music",
+    "type": "Audiobook",
+    "brandColor": "#F8991C",
+    "logoSymbol": "book.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 14.95, "yearly": null },
+      "TR": { "currency": "TRY", "monthly": 89.99, "yearly": null }
+    }
+  },
+  {
+    "id": "xbox-game-pass",
+    "name": "Xbox Game Pass",
+    "category": "gaming",
+    "type": "Gaming",
+    "brandColor": "#107C10",
+    "logoSymbol": "gamecontroller.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 14.99, "yearly": null },
+      "TR": { "currency": "TRY", "monthly": 159.99, "yearly": null }
+    }
+  },
+  {
+    "id": "playstation-plus",
+    "name": "PlayStation Plus",
+    "category": "gaming",
+    "type": "Gaming",
+    "brandColor": "#003791",
+    "logoSymbol": "gamecontroller",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 9.99, "yearly": 79.99 },
+      "TR": { "currency": "TRY", "monthly": 119.99, "yearly": 999.99 }
+    }
+  },
+  {
+    "id": "nintendo-switch-online",
+    "name": "Nintendo Switch Online",
+    "category": "gaming",
+    "type": "Gaming",
+    "brandColor": "#E4000F",
+    "logoSymbol": "arrow.triangle.2.circlepath.circle.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 3.99, "yearly": 19.99 },
+      "TR": { "currency": "TRY", "monthly": 39.99, "yearly": 199.99 }
+    }
+  },
+  {
+    "id": "ea-play",
+    "name": "EA Play",
+    "category": "gaming",
+    "type": "Gaming",
+    "brandColor": "#FF4747",
+    "logoSymbol": "play.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 4.99, "yearly": 29.99 },
+      "TR": { "currency": "TRY", "monthly": 49.99, "yearly": null }
+    }
+  },
+  {
+    "id": "ubisoft-plus",
+    "name": "Ubisoft+",
+    "category": "gaming",
+    "type": "Gaming",
+    "brandColor": "#0070FF",
+    "logoSymbol": "plus.circle.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 17.99, "yearly": null },
+      "TR": { "currency": "USD", "monthly": 17.99, "yearly": null }
+    }
+  },
+  {
+    "id": "geforce-now",
+    "name": "GeForce Now",
+    "category": "gaming",
+    "type": "Gaming",
+    "brandColor": "#76B900",
+    "logoSymbol": "cpu.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 9.99, "yearly": null },
+      "TR": { "currency": "TRY", "monthly": 149.99, "yearly": null }
+    }
+  },
+  {
+    "id": "chatgpt-plus",
+    "name": "ChatGPT Plus",
+    "category": "ai",
+    "type": "AI",
+    "brandColor": "#10A37F",
+    "logoSymbol": "bubble.left.and.bubble.right.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 20.00, "yearly": null },
+      "TR": { "currency": "USD", "monthly": 20.00, "yearly": null }
+    }
+  },
+  {
+    "id": "claude-pro",
+    "name": "Claude Pro",
+    "category": "ai",
+    "type": "AI",
+    "brandColor": "#CC785C",
+    "logoSymbol": "brain",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 20.00, "yearly": null },
+      "TR": { "currency": "USD", "monthly": 20.00, "yearly": null }
+    }
+  },
+  {
+    "id": "gemini-advanced",
+    "name": "Gemini Advanced",
+    "category": "ai",
+    "type": "AI",
+    "brandColor": "#4285F4",
+    "logoSymbol": "sparkle",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 19.99, "yearly": null },
+      "TR": { "currency": "TRY", "monthly": 299.99, "yearly": null }
+    }
+  },
+  {
+    "id": "perplexity-pro",
+    "name": "Perplexity Pro",
+    "category": "ai",
+    "type": "AI",
+    "brandColor": "#20808D",
+    "logoSymbol": "magnifyingglass.circle.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 20.00, "yearly": 200.00 },
+      "TR": { "currency": "USD", "monthly": 20.00, "yearly": null }
+    }
+  },
+  {
+    "id": "github-copilot",
+    "name": "GitHub Copilot",
+    "category": "ai",
+    "type": "AI",
+    "brandColor": "#24292E",
+    "logoSymbol": "chevron.left.forwardslash.chevron.right",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 10.00, "yearly": 100.00 },
+      "TR": { "currency": "USD", "monthly": 10.00, "yearly": null }
+    }
+  },
+  {
+    "id": "midjourney",
+    "name": "Midjourney",
+    "category": "ai",
+    "type": "AI",
+    "brandColor": "#000000",
+    "logoSymbol": "photo.artframe",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 10.00, "yearly": null },
+      "TR": { "currency": "USD", "monthly": 10.00, "yearly": null }
+    }
+  },
+  {
+    "id": "adobe-cc",
+    "name": "Adobe Creative Cloud",
+    "category": "design",
+    "type": "Design",
+    "brandColor": "#FF0000",
+    "logoSymbol": "paintbrush.pointed.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 54.99, "yearly": 659.88 },
+      "TR": { "currency": "TRY", "monthly": 499.99, "yearly": null }
+    }
+  },
+  {
+    "id": "canva-pro",
+    "name": "Canva Pro",
+    "category": "design",
+    "type": "Design",
+    "brandColor": "#00C4CC",
+    "logoSymbol": "square.on.square",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 14.99, "yearly": 119.99 },
+      "TR": { "currency": "TRY", "monthly": 139.99, "yearly": null }
+    }
+  },
+  {
+    "id": "figma-professional",
+    "name": "Figma Professional",
+    "category": "design",
+    "type": "Design",
+    "brandColor": "#F24E1E",
+    "logoSymbol": "squareshape.split.2x2",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 15.00, "yearly": 144.00 },
+      "TR": { "currency": "USD", "monthly": 15.00, "yearly": null }
+    }
+  },
+  {
+    "id": "procreate",
+    "name": "Procreate",
+    "category": "design",
+    "type": "Design",
+    "brandColor": "#4A90E2",
+    "logoSymbol": "pencil.tip.crop.circle",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": null, "yearly": null },
+      "TR": { "currency": "TRY", "monthly": null, "yearly": null }
+    }
+  },
+  {
+    "id": "notion",
+    "name": "Notion",
+    "category": "productivity",
+    "type": "Productivity",
+    "brandColor": "#000000",
+    "logoSymbol": "doc.text.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 10.00, "yearly": 96.00 },
+      "TR": { "currency": "USD", "monthly": 10.00, "yearly": null }
+    }
+  },
+  {
+    "id": "microsoft-365",
+    "name": "Microsoft 365",
+    "category": "productivity",
+    "type": "Productivity",
+    "brandColor": "#D83B01",
+    "logoSymbol": "w.circle.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 6.99, "yearly": 69.99 },
+      "TR": { "currency": "TRY", "monthly": 89.99, "yearly": 899.99 }
+    }
+  },
+  {
+    "id": "google-workspace",
+    "name": "Google Workspace",
+    "category": "productivity",
+    "type": "Productivity",
+    "brandColor": "#4285F4",
+    "logoSymbol": "g.circle.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 6.00, "yearly": 72.00 },
+      "TR": { "currency": "USD", "monthly": 6.00, "yearly": null }
+    }
+  },
+  {
+    "id": "slack-pro",
+    "name": "Slack Pro",
+    "category": "productivity",
+    "type": "Productivity",
+    "brandColor": "#4A154B",
+    "logoSymbol": "number.square.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 7.25, "yearly": 87.00 },
+      "TR": { "currency": "USD", "monthly": 7.25, "yearly": null }
+    }
+  },
+  {
+    "id": "zoom-pro",
+    "name": "Zoom Pro",
+    "category": "productivity",
+    "type": "Productivity",
+    "brandColor": "#2D8CFF",
+    "logoSymbol": "video.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 15.99, "yearly": 149.90 },
+      "TR": { "currency": "USD", "monthly": 15.99, "yearly": null }
+    }
+  },
+  {
+    "id": "grammarly-premium",
+    "name": "Grammarly Premium",
+    "category": "productivity",
+    "type": "Productivity",
+    "brandColor": "#15C39A",
+    "logoSymbol": "checkmark.bubble.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 29.99, "yearly": 139.95 },
+      "TR": { "currency": "USD", "monthly": 29.99, "yearly": null }
+    }
+  },
+  {
+    "id": "amazon-prime",
+    "name": "Amazon Prime",
+    "category": "shopping",
+    "type": "Shopping",
+    "brandColor": "#FF9900",
+    "logoSymbol": "cart.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 14.99, "yearly": 139.00 },
+      "TR": { "currency": "TRY", "monthly": 29.99, "yearly": 269.99 }
+    }
+  },
+  {
+    "id": "hepsiburada-premium",
+    "name": "Hepsiburada Premium",
+    "category": "shopping",
+    "type": "Shopping",
+    "brandColor": "#FF6000",
+    "logoSymbol": "bag.fill",
+    "defaultPricing": {
+      "US": { "currency": "TRY", "monthly": 99.99, "yearly": null },
+      "TR": { "currency": "TRY", "monthly": 99.99, "yearly": 999.99 }
+    }
+  },
+  {
+    "id": "trendyol-elite",
+    "name": "Trendyol Elite",
+    "category": "shopping",
+    "type": "Shopping",
+    "brandColor": "#F27A1A",
+    "logoSymbol": "star.fill",
+    "defaultPricing": {
+      "US": { "currency": "TRY", "monthly": 79.99, "yearly": null },
+      "TR": { "currency": "TRY", "monthly": 79.99, "yearly": 799.99 }
+    }
+  },
+  {
+    "id": "icloud-plus",
+    "name": "iCloud+",
+    "category": "storage",
+    "type": "Storage",
+    "brandColor": "#147EFB",
+    "logoSymbol": "icloud.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 2.99, "yearly": null },
+      "TR": { "currency": "TRY", "monthly": 39.99, "yearly": null }
+    }
+  },
+  {
+    "id": "dropbox",
+    "name": "Dropbox",
+    "category": "storage",
+    "type": "Storage",
+    "brandColor": "#0061FF",
+    "logoSymbol": "archivebox.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 11.99, "yearly": 119.99 },
+      "TR": { "currency": "USD", "monthly": 11.99, "yearly": null }
+    }
+  },
+  {
+    "id": "google-one",
+    "name": "Google One",
+    "category": "storage",
+    "type": "Storage",
+    "brandColor": "#4285F4",
+    "logoSymbol": "externaldrive.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 2.99, "yearly": 29.99 },
+      "TR": { "currency": "TRY", "monthly": 29.99, "yearly": null }
+    }
+  },
+  {
+    "id": "onedrive",
+    "name": "OneDrive",
+    "category": "storage",
+    "type": "Storage",
+    "brandColor": "#0078D4",
+    "logoSymbol": "cloud.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 1.99, "yearly": 19.99 },
+      "TR": { "currency": "TRY", "monthly": 29.99, "yearly": null }
+    }
+  },
+  {
+    "id": "apple-fitness-plus",
+    "name": "Apple Fitness+",
+    "category": "fitness",
+    "type": "Fitness",
+    "brandColor": "#FF375F",
+    "logoSymbol": "figure.run",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 9.99, "yearly": 79.99 },
+      "TR": { "currency": "TRY", "monthly": 69.99, "yearly": 649.99 }
+    }
+  },
+  {
+    "id": "strava",
+    "name": "Strava",
+    "category": "fitness",
+    "type": "Fitness",
+    "brandColor": "#FC4C02",
+    "logoSymbol": "figure.walk",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 6.99, "yearly": 59.99 },
+      "TR": { "currency": "TRY", "monthly": 79.99, "yearly": null }
+    }
+  },
+  {
+    "id": "myfitnesspal-premium",
+    "name": "MyFitnessPal Premium",
+    "category": "fitness",
+    "type": "Fitness",
+    "brandColor": "#0066FF",
+    "logoSymbol": "fork.knife.circle.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 9.99, "yearly": 79.99 },
+      "TR": { "currency": "USD", "monthly": 9.99, "yearly": null }
+    }
+  },
+  {
+    "id": "duolingo-plus",
+    "name": "Duolingo Plus",
+    "category": "education",
+    "type": "Education",
+    "brandColor": "#58CC02",
+    "logoSymbol": "globe",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 12.99, "yearly": 83.99 },
+      "TR": { "currency": "TRY", "monthly": 139.99, "yearly": null }
+    }
+  },
+  {
+    "id": "masterclass",
+    "name": "MasterClass",
+    "category": "education",
+    "type": "Education",
+    "brandColor": "#1A1A1A",
+    "logoSymbol": "graduationcap.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": null, "yearly": 120.00 },
+      "TR": { "currency": "USD", "monthly": null, "yearly": 120.00 }
+    }
+  },
+  {
+    "id": "coursera-plus",
+    "name": "Coursera Plus",
+    "category": "education",
+    "type": "Education",
+    "brandColor": "#0056D2",
+    "logoSymbol": "book.closed.fill",
+    "defaultPricing": {
+      "US": { "currency": "USD", "monthly": 59.00, "yearly": 399.00 },
+      "TR": { "currency": "USD", "monthly": 59.00, "yearly": null }
+    }
+  }
+]
