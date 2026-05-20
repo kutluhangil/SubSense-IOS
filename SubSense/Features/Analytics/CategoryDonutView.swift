@@ -51,13 +51,13 @@ struct CategoryDonutView: View {
                     }
                     .frame(width: 130, height: 130)
                     .accessibilityChartDescriptor(self)
-                    .animation(.spring(response: 0.4, dampingFraction: 0.8), value: selectedCategory)
+                    .animation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0), value: selectedCategory)
 
                     // Legend
                     VStack(alignment: .leading, spacing: AppSpacing.sm) {
                         ForEach(dataPoints.prefix(5)) { point in
                             Button {
-                                withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                                withAnimation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
                                     selectedCategory = selectedCategory == point.category ? nil : point.category
                                 }
                             } label: {
@@ -67,15 +67,15 @@ struct CategoryDonutView: View {
                                         .frame(width: 8, height: 8)
                                     Text(point.category.displayName)
                                         .font(.appCaption)
-                                        .foregroundStyle(.appTextPrimary)
+                                        .foregroundStyle(Color.appTextPrimary)
                                     Spacer()
                                     VStack(alignment: .trailing, spacing: 1) {
                                         Text(String(format: "%.0f%%", point.percentage))
                                             .font(.appCaption.weight(.semibold))
-                                            .foregroundStyle(.appTextPrimary)
+                                            .foregroundStyle(Color.appTextPrimary)
                                         Text(currencyService.formatAmount(point.amount, currency: currency))
                                             .font(Font.system(size: 9, weight: .regular))
-                                            .foregroundStyle(.appTextMuted)
+                                            .foregroundStyle(Color.appTextMuted)
                                     }
                                 }
                             }

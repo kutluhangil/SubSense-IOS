@@ -80,7 +80,7 @@ struct SpendChartView: View {
                         x: .value("Month", point.date, unit: .month),
                         y: .value("Amount", NSDecimalNumber(decimal: point.amount).doubleValue)
                     )
-                    .foregroundStyle(.brand)
+                    .foregroundStyle(Color.brand)
                     .lineStyle(StrokeStyle(lineWidth: 2))
                     .interpolationMethod(.catmullRom)
 
@@ -88,7 +88,7 @@ struct SpendChartView: View {
                         x: .value("Month", point.date, unit: .month),
                         y: .value("Amount", NSDecimalNumber(decimal: point.amount).doubleValue)
                     )
-                    .foregroundStyle(.brand)
+                    .foregroundStyle(Color.brand)
                     .symbolSize(30)
                 }
                 .frame(height: 180)

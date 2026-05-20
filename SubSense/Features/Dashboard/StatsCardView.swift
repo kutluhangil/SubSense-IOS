@@ -15,7 +15,7 @@ struct StatsCardView: View {
 
     var body: some View {
         Button {
-            withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+            withAnimation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
                 isExpanded.toggle()
             }
         } label: {
@@ -24,25 +24,25 @@ struct StatsCardView: View {
                 // Label
                 Text(String(localized: "dashboard.thisMonth").uppercased())
                     .font(.appCaption)
-                    .foregroundStyle(.appTextMuted)
+                    .foregroundStyle(Color.appTextMuted)
                     .tracking(0.5)
 
                 // Big amount
                 Text(formatDecimal(monthlyTotal, currency: currency))
                     .font(.display)
-                    .foregroundStyle(.appTextPrimary)
+                    .foregroundStyle(Color.appTextPrimary)
                     .contentTransition(.numericText())
-                    .animation(.spring(response: 0.4, dampingFraction: 0.8), value: monthlyTotal)
+                    .animation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0), value: monthlyTotal)
 
                 // Delta
                 if delta != 0 {
                     HStack(spacing: AppSpacing.xs) {
                         Image(systemName: deltaIsPositive ? "arrow.up.right" : "arrow.down.right")
                             .font(.appCaption)
-                            .foregroundStyle(deltaIsPositive ? .appDanger : .appSuccess)
+                            .foregroundStyle(deltaIsPositive ? Color.appDanger : Color.appSuccess)
                         Text("\(formatDecimal(abs(delta), currency: currency)) \(String(localized: "dashboard.vsLastMonth"))")
                             .font(.appFootnote)
-                            .foregroundStyle(.appTextMuted)
+                            .foregroundStyle(Color.appTextMuted)
                     }
                     .transition(.opacity.combined(with: .move(edge: .top)))
                 }
@@ -54,19 +54,19 @@ struct StatsCardView: View {
                 HStack(spacing: AppSpacing.xs) {
                     Image(systemName: "checkmark.circle.fill")
                         .font(.appCaption)
-                        .foregroundStyle(.appSuccess)
+                        .foregroundStyle(Color.appSuccess)
                     Text("\(activeCount) \(String(localized: "dashboard.active"))")
                         .font(.appFootnote)
-                        .foregroundStyle(.appTextMuted)
+                        .foregroundStyle(Color.appTextMuted)
                         .contentTransition(.numericText())
                     Text("·")
-                        .foregroundStyle(.appTextMuted)
+                        .foregroundStyle(Color.appTextMuted)
                         .font(.appFootnote)
                     Text("\(formatDecimal(yearlyTotal, currency: currency))/\(String(localized: "subscription.perYear.short"))")
                         .font(.appFootnote)
-                        .foregroundStyle(.appTextMuted)
+                        .foregroundStyle(Color.appTextMuted)
                         .contentTransition(.numericText())
-                        .animation(.spring(response: 0.4, dampingFraction: 0.8), value: yearlyTotal)
+                        .animation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0), value: yearlyTotal)
                 }
 
                 // Expanded breakdown
@@ -105,10 +105,10 @@ struct StatsCardView: View {
                             .strokeBorder(Color.brand.opacity(0.12), lineWidth: 1)
                     }
             }
-            .shadow(color: .brand.opacity(0.08), radius: 20, x: 0, y: 4)
+            .shadow(color: Color.brand.opacity(0.08), radius: 20, x: 0, y: 4)
         }
         .buttonStyle(.plain)
-        .brandHalo(color: .brand, intensity: 0.05)
+        .brandHalo(color: Color.brand, intensity: 0.05)
         .accessibilityLabel(
             "Monthly total: \(formatDecimal(monthlyTotal, currency: currency)). \(activeCount) active subscriptions."
         )

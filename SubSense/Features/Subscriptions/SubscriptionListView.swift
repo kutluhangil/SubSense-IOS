@@ -92,7 +92,7 @@ struct SubscriptionListView: View {
                     Button { showAdd = true } label: {
                         Image(systemName: "plus.circle.fill")
                             .font(.title2)
-                            .foregroundStyle(.brand)
+                            .foregroundStyle(Color.brand)
                     }
                 }
                 ToolbarItem(placement: .principal) {
@@ -101,8 +101,8 @@ struct SubscriptionListView: View {
             }
             .sheet(isPresented: $showAdd) { AddSubscriptionView() }
             .sheet(item: $editTarget) { sub in EditSubscriptionView(subscription: sub) }
-            .sensoryFeedback(.impact(.medium), trigger: deleteTrigger)
-            .sensoryFeedback(.impact(.soft), trigger: inactivateTrigger)
+            .sensoryFeedback(.impact, trigger: deleteTrigger)
+            .sensoryFeedback(.impact(flexibility: .soft), trigger: inactivateTrigger)
             .task {
                 guard let uid = authStore.userID else { return }
                 try? await profileRepo.fetch(userId: uid)
@@ -172,7 +172,7 @@ struct SubscriptionListView: View {
                         title: option.localizedTitle,
                         isSelected: selectedFilter == option
                     ) {
-                        withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+                        withAnimation(Animation.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0)) {
                             selectedFilter = option
                         }
                     }
@@ -217,10 +217,12 @@ struct FilterPill: View {
     let action: () -> Void
 
     var body: some View {
-        Button(action: action) {
+        Button {
+            action()
+        } label: {
             Text(title)
                 .font(.appCaption.weight(isSelected ? .semibold : .regular))
-                .foregroundStyle(isSelected ? .white : .appTextMuted)
+                .foregroundStyle(isSelected ? Color.white : Color.appTextMuted)
                 .padding(.horizontal, AppSpacing.md)
                 .padding(.vertical, AppSpacing.xs)
                 .background {
@@ -235,7 +237,7 @@ struct FilterPill: View {
                 }
         }
         .buttonStyle(.plain)
-        .sensoryFeedback(.impact(.soft), trigger: isSelected)
+        .sensoryFeedback(.impact(flexibility: .soft), trigger: isSelected)
     }
 }
 

@@ -66,6 +66,6 @@ final class LocalNotificationService {
 
     func refreshBadge() async {
         let count = await scheduledNotificationCount()
-        await UNUserNotificationCenter.current().setBadgeCount(count)
+        try? await UNUserNotificationCenter.current().setBadgeCount(count)
     }
 }

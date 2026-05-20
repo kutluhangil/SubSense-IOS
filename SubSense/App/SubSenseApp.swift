@@ -58,8 +58,8 @@ struct RootView: View {
                 MainTabView()
             }
         }
-        .animation(.spring(response: 0.4, dampingFraction: 0.8), value: authStore.isAuthenticated)
-        .animation(.spring(response: 0.4, dampingFraction: 0.8), value: hasSeenOnboarding)
+        .animation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0), value: authStore.isAuthenticated)
+        .animation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0), value: hasSeenOnboarding)
     }
 }
 
@@ -100,7 +100,7 @@ struct MainTabView: View {
                         Label("settings.tab", systemImage: "gearshape.fill")
                     }
             }
-            .tint(.brand)
+            .tint(Color.brand)
 
             // Floating center + button
             Button {
@@ -116,7 +116,7 @@ struct MainTabView: View {
                             endPoint: .bottomTrailing
                         ))
                         .frame(width: 56, height: 56)
-                        .shadow(color: .brand.opacity(0.4), radius: 12, x: 0, y: 4)
+                        .shadow(color: Color.brand.opacity(0.4), radius: 12, x: 0, y: 4)
 
                     Image(systemName: "plus")
                         .font(.system(size: 22, weight: .semibold))

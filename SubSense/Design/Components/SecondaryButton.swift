@@ -8,28 +8,30 @@ struct SecondaryButton: View {
     @State private var isPressed = false
 
     var body: some View {
-        Button(action: action) {
+        Button {
+            action()
+        } label: {
             ZStack {
                 if isLoading {
                     ProgressView()
                         .progressViewStyle(.circular)
-                        .tint(.brand)
+                        .tint(Color.brand)
                 } else {
                     Text(title)
                         .font(.appCallout)
-                        .foregroundStyle(.brand)
+                        .foregroundStyle(Color.brand)
                 }
             }
             .frame(maxWidth: .infinity)
             .frame(height: 56)
             .background {
                 RoundedRectangle(cornerRadius: AppRadius.button)
-                    .strokeBorder(.brand, lineWidth: 1.5)
+                    .strokeBorder(Color.brand, lineWidth: 1.5)
             }
         }
         .scaleEffect(isPressed ? 0.97 : 1.0)
-        .animation(.spring(response: 0.4, dampingFraction: 0.8), value: isPressed)
-        .sensoryFeedback(.impact(.soft), trigger: isPressed)
+        .animation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0), value: isPressed)
+        .sensoryFeedback(.impact(flexibility: .soft), trigger: isPressed)
         ._onButtonGesture(pressing: { pressing in
             isPressed = pressing
         }, perform: {})

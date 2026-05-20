@@ -48,7 +48,6 @@ final class AssistantService {
                 do {
                     let response: String = try await client.functions
                         .invoke("ai-chat", options: .init(body: request))
-                        .value
                     continuation.yield(response)
                     continuation.finish()
                 } catch {

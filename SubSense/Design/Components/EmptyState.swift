@@ -11,18 +11,18 @@ struct EmptyState: View {
         VStack(spacing: AppSpacing.xl) {
             Image(systemName: symbol)
                 .font(.system(size: 48, weight: .thin))
-                .foregroundStyle(.appTextMuted)
+                .foregroundStyle(Color.appTextMuted)
                 .symbolEffect(.pulse, options: .repeating)
 
             VStack(spacing: AppSpacing.sm) {
                 Text(title)
                     .font(.appTitle2)
-                    .foregroundStyle(.appTextPrimary)
+                    .foregroundStyle(Color.appTextPrimary)
                     .multilineTextAlignment(.center)
 
                 Text(subtitle)
                     .font(.appBody)
-                    .foregroundStyle(.appTextMuted)
+                    .foregroundStyle(Color.appTextMuted)
                     .multilineTextAlignment(.center)
             }
 

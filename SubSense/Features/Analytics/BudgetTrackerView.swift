@@ -33,13 +33,13 @@ struct BudgetTrackerView: View {
                                 HStack {
                                     Text(budget.category.capitalized)
                                         .font(.appCallout)
-                                        .foregroundStyle(.appTextPrimary)
+                                        .foregroundStyle(Color.appTextPrimary)
                                     Spacer()
                                     Text(
                                         "\(currencyService.formatAmount(spentAmount, currency: currency)) / \(currencyService.formatAmount(budget.monthlyLimit, currency: currency))"
                                     )
                                     .font(.appFootnote)
-                                    .foregroundStyle(isOver ? .appDanger : .appTextMuted)
+                                    .foregroundStyle(isOver ? Color.appDanger : Color.appTextMuted)
                                     .contentTransition(.numericText())
                                 }
 
@@ -51,7 +51,7 @@ struct BudgetTrackerView: View {
                                         RoundedRectangle(cornerRadius: 4)
                                             .fill(isOver ? Color.appDanger : Color.appSuccess)
                                             .frame(width: geo.size.width * progress, height: 6)
-                                            .animation(.spring(response: 0.5, dampingFraction: 0.8), value: progress)
+                                            .animation(Animation.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0), value: progress)
                                     }
                                 }
                                 .frame(height: 6)

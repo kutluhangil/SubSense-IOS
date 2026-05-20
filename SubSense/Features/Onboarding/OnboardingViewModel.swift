@@ -14,7 +14,7 @@ final class OnboardingViewModel {
 
     func nextPage() {
         guard !isLastPage else { return }
-        withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+        withAnimation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
             currentPage += 1
         }
     }

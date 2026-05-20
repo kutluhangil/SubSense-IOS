@@ -26,10 +26,10 @@ struct DashboardView: View {
                         if repository.error != nil {
                             HStack(spacing: AppSpacing.sm) {
                                 Image(systemName: "exclamationmark.triangle.fill")
-                                    .foregroundStyle(.appWarning)
+                                    .foregroundStyle(Color.appWarning)
                                 Text(String(localized: "dashboard.error"))
                                     .font(.appFootnote)
-                                    .foregroundStyle(.appTextPrimary)
+                                    .foregroundStyle(Color.appTextPrimary)
                                 Spacer()
                             }
                             .padding(AppSpacing.md)
@@ -145,7 +145,7 @@ struct DashboardView: View {
                 .frame(width: 36, height: 36)
             Text(profileRepo.profile?.initials ?? "U")
                 .font(.appCaption.weight(.semibold))
-                .foregroundStyle(.brand)
+                .foregroundStyle(Color.brand)
         }
         .accessibilityLabel("Profile")
     }
@@ -157,11 +157,11 @@ struct DashboardView: View {
             HStack {
                 Text(String(format: String(localized: "dashboard.seeAll"), repository.activeCount))
                     .font(.appCallout)
-                    .foregroundStyle(.brand)
+                    .foregroundStyle(Color.brand)
                 Spacer()
                 Image(systemName: "chevron.right")
                     .font(.appCaption)
-                    .foregroundStyle(.brand)
+                    .foregroundStyle(Color.brand)
             }
             .padding(AppSpacing.base)
             .background {
@@ -198,33 +198,33 @@ struct AIInsightTeaserView: View {
                         .frame(width: 44, height: 44)
                     Image(systemName: "sparkles")
                         .font(.appCallout)
-                        .foregroundStyle(.accent)
+                        .foregroundStyle(Color.accent)
                 }
 
                 VStack(alignment: .leading, spacing: 2) {
                     HStack(spacing: AppSpacing.sm) {
                         Text(String(localized: "dashboard.aiInsight"))
                             .font(.appCallout.weight(.semibold))
-                            .foregroundStyle(.appTextPrimary)
+                            .foregroundStyle(Color.appTextPrimary)
                         if !isPro {
                             Text("PRO")
                                 .font(.appCaption.weight(.bold))
                                 .foregroundStyle(.white)
                                 .padding(.horizontal, 6)
                                 .padding(.vertical, 2)
-                                .background(Capsule().fill(.accent))
+                                .background(Capsule().fill(Color.accent))
                         }
                     }
                     Text(String(localized: "dashboard.aiInsight.subtitle"))
                         .font(.appFootnote)
-                        .foregroundStyle(.appTextMuted)
+                        .foregroundStyle(Color.appTextMuted)
                 }
 
                 Spacer()
 
                 Image(systemName: isPro ? "chevron.right" : "lock.fill")
                     .font(.appCaption)
-                    .foregroundStyle(.appTextMuted)
+                    .foregroundStyle(Color.appTextMuted)
             }
             .padding(AppSpacing.base)
             .background {
@@ -237,8 +237,8 @@ struct AIInsightTeaserView: View {
             }
         }
         .buttonStyle(.plain)
-        .sensoryFeedback(.impact(.soft), trigger: showInsights)
-        .sensoryFeedback(.impact(.soft), trigger: showPaywall)
+        .sensoryFeedback(.impact(flexibility: .soft), trigger: showInsights)
+        .sensoryFeedback(.impact(flexibility: .soft), trigger: showPaywall)
         .sheet(isPresented: $showInsights) {
             InsightsView()
         }

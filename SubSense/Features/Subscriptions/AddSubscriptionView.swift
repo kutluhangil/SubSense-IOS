@@ -39,13 +39,13 @@ struct AddSubscriptionView: View {
                 }
                 ToolbarItem(placement: .confirmationAction) {
                     if isSaving {
-                        ProgressView().tint(.brand)
+                        ProgressView().tint(Color.brand)
                     } else {
                         Button(String(localized: "general.save")) {
                             Task { await save() }
                         }
                         .fontWeight(.semibold)
-                        .foregroundStyle(isFormValid ? .brand : .appTextMuted)
+                        .foregroundStyle(isFormValid ? Color.brand : Color.appTextMuted)
                         .disabled(!isFormValid)
                     }
                 }
@@ -79,7 +79,7 @@ struct AddSubscriptionView: View {
             HStack {
                 Text(String(localized: "subscription.pickPopular").uppercased())
                     .font(.appCaption)
-                    .foregroundStyle(.appTextMuted)
+                    .foregroundStyle(Color.appTextMuted)
                     .tracking(0.5)
                 Spacer()
                 Button {
@@ -87,7 +87,7 @@ struct AddSubscriptionView: View {
                 } label: {
                     Text(String(localized: "subscription.seeAll"))
                         .font(.appCaption)
-                        .foregroundStyle(.brand)
+                        .foregroundStyle(Color.brand)
                 }
             }
 
@@ -106,7 +106,7 @@ struct AddSubscriptionView: View {
                                 )
                                 Text(item.name)
                                     .font(.appCaption)
-                                    .foregroundStyle(.appTextMuted)
+                                    .foregroundStyle(Color.appTextMuted)
                                     .lineLimit(1)
                                     .frame(width: 56)
                             }
@@ -128,11 +128,11 @@ struct AddSubscriptionView: View {
                                     }
                                     .frame(width: 52, height: 52)
                                 Image(systemName: "ellipsis")
-                                    .foregroundStyle(.appTextMuted)
+                                    .foregroundStyle(Color.appTextMuted)
                             }
                             Text(String(localized: "subscription.more"))
                                 .font(.appCaption)
-                                .foregroundStyle(.appTextMuted)
+                                .foregroundStyle(Color.appTextMuted)
                         }
                     }
                     .buttonStyle(.plain)
@@ -178,11 +178,11 @@ struct AddSubscriptionView: View {
                     HStack {
                         Label(draft.category.displayName, systemImage: draft.category.symbol)
                             .font(.appBody)
-                            .foregroundStyle(.appTextPrimary)
+                            .foregroundStyle(Color.appTextPrimary)
                         Spacer()
                         Image(systemName: "chevron.up.chevron.down")
                             .font(.appCaption)
-                            .foregroundStyle(.appTextMuted)
+                            .foregroundStyle(Color.appTextMuted)
                     }
                     .padding(AppSpacing.base)
                     .background(fieldBackground)
@@ -195,7 +195,7 @@ struct AddSubscriptionView: View {
                     HStack(spacing: AppSpacing.xs) {
                         Text(Currencies.symbol(for: draft.currency))
                             .font(.appCallout)
-                            .foregroundStyle(.appTextMuted)
+                            .foregroundStyle(Color.appTextMuted)
                         TextField("0.00", value: $draft.price, format: .number)
                             .keyboardType(.decimalPad)
                             .font(.appBody)
@@ -210,10 +210,10 @@ struct AddSubscriptionView: View {
                             Text(Currencies.flag(for: draft.currency))
                             Text(draft.currency)
                                 .font(.appCallout.weight(.semibold))
-                                .foregroundStyle(.appTextPrimary)
+                                .foregroundStyle(Color.appTextPrimary)
                             Image(systemName: "chevron.down")
                                 .font(.appCaption)
-                                .foregroundStyle(.appTextMuted)
+                                .foregroundStyle(Color.appTextMuted)
                         }
                         .padding(.horizontal, AppSpacing.md)
                         .padding(.vertical, AppSpacing.base)
@@ -252,14 +252,14 @@ struct AddSubscriptionView: View {
                     VStack(alignment: .leading, spacing: AppSpacing.xs) {
                         Text(String(localized: "subscription.reminder.label"))
                             .font(.appBody)
-                            .foregroundStyle(.appTextPrimary)
+                            .foregroundStyle(Color.appTextPrimary)
                         Text(String(localized: "subscription.reminder.subtitle"))
                             .font(.appCaption)
-                            .foregroundStyle(.appTextMuted)
+                            .foregroundStyle(Color.appTextMuted)
                     }
                     Spacer()
                     Toggle("", isOn: $draft.reminderEnabled)
-                        .tint(.brand)
+                        .tint(Color.brand)
                         .labelsHidden()
                 }
                 .padding(AppSpacing.base)
@@ -272,7 +272,7 @@ struct AddSubscriptionView: View {
                     if draft.notes.isEmpty {
                         Text(String(localized: "subscription.notes.placeholder"))
                             .font(.appBody)
-                            .foregroundStyle(.appTextMuted)
+                            .foregroundStyle(Color.appTextMuted)
                             .padding(.horizontal, 5)
                             .padding(.vertical, 8)
                     }
@@ -292,7 +292,7 @@ struct AddSubscriptionView: View {
         if let err = validationError {
             Text(err)
                 .font(.appFootnote)
-                .foregroundStyle(.appDanger)
+                .foregroundStyle(Color.appDanger)
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .transition(.opacity)
         }
@@ -307,7 +307,7 @@ struct AddSubscriptionView: View {
         VStack(alignment: .leading, spacing: AppSpacing.xs) {
             Text(title.uppercased())
                 .font(.appCaption)
-                .foregroundStyle(.appTextMuted)
+                .foregroundStyle(Color.appTextMuted)
                 .tracking(0.5)
             content()
                 .clipShape(RoundedRectangle(cornerRadius: AppRadius.button))
@@ -370,7 +370,7 @@ struct AddSubscriptionView: View {
             saveSuccessTrigger.toggle()
             dismiss()
         } catch {
-            withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+            withAnimation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
                 validationError = error.localizedDescription
             }
         }

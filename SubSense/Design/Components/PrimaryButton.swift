@@ -7,10 +7,10 @@ struct PrimaryButton: View {
     let action: () -> Void
 
     var body: some View {
-        Button(action: {
+        Button {
             guard !isLoading && !isDisabled else { return }
             action()
-        }) {
+        } label: {
             ZStack {
                 if isLoading {
                     ProgressView()
@@ -28,13 +28,13 @@ struct PrimaryButton: View {
                 RoundedRectangle(cornerRadius: AppRadius.button)
                     .fill(LinearGradient(
                         colors: isDisabled
-                            ? [.appTextMuted, .appTextMuted]
-                            : [.brand, .brandDeep],
+                            ? [Color.appTextMuted, Color.appTextMuted]
+                            : [Color.brand, Color.brandDeep],
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     ))
                     .shadow(
-                        color: isDisabled ? .clear : .brand.opacity(0.3),
+                        color: isDisabled ? .clear : Color.brand.opacity(0.3),
                         radius: 12, x: 0, y: 4
                     )
             }
@@ -49,7 +49,7 @@ private struct PressScaleButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .scaleEffect(configuration.isPressed ? 0.97 : 1.0)
-            .animation(.spring(response: 0.3, dampingFraction: 0.8), value: configuration.isPressed)
-            .sensoryFeedback(.impact(.soft), trigger: configuration.isPressed)
+            .animation(Animation.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0), value: configuration.isPressed)
+            .sensoryFeedback(.impact(flexibility: .soft), trigger: configuration.isPressed)
     }
 }

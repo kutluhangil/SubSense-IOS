@@ -43,7 +43,7 @@ struct RenewalCalendarView: View {
                 // Month navigation
                 HStack {
                     Button {
-                        withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                        withAnimation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
                             displayedMonth = calendar.date(
                                 byAdding: .month, value: -1, to: displayedMonth
                             ) ?? displayedMonth
@@ -51,7 +51,7 @@ struct RenewalCalendarView: View {
                     } label: {
                         Image(systemName: "chevron.left")
                             .font(.appCallout)
-                            .foregroundStyle(.brand)
+                            .foregroundStyle(Color.brand)
                             .frame(width: 44, height: 44)
                     }
 
@@ -59,13 +59,13 @@ struct RenewalCalendarView: View {
 
                     Text(displayedMonth.formatted(.dateTime.month(.wide).year()))
                         .font(.appTitle2)
-                        .foregroundStyle(.appTextPrimary)
+                        .foregroundStyle(Color.appTextPrimary)
                         .contentTransition(.opacity)
 
                     Spacer()
 
                     Button {
-                        withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                        withAnimation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
                             displayedMonth = calendar.date(
                                 byAdding: .month, value: 1, to: displayedMonth
                             ) ?? displayedMonth
@@ -73,7 +73,7 @@ struct RenewalCalendarView: View {
                     } label: {
                         Image(systemName: "chevron.right")
                             .font(.appCallout)
-                            .foregroundStyle(.brand)
+                            .foregroundStyle(Color.brand)
                             .frame(width: 44, height: 44)
                     }
                 }
@@ -84,7 +84,7 @@ struct RenewalCalendarView: View {
                     ForEach(weekdaySymbols, id: \.self) { symbol in
                         Text(symbol)
                             .font(.appCaption.weight(.semibold))
-                            .foregroundStyle(.appTextMuted)
+                            .foregroundStyle(Color.appTextMuted)
                             .frame(maxWidth: .infinity)
                     }
                 }
@@ -124,15 +124,15 @@ struct RenewalCalendarView: View {
                                             VStack(alignment: .leading, spacing: AppSpacing.xs) {
                                                 Text(sub.name)
                                                     .font(.appCallout)
-                                                    .foregroundStyle(.appTextPrimary)
+                                                    .foregroundStyle(Color.appTextPrimary)
                                                 Text(sub.cycle.displayName)
                                                     .font(.appCaption)
-                                                    .foregroundStyle(.appTextMuted)
+                                                    .foregroundStyle(Color.appTextMuted)
                                             }
                                             Spacer()
                                             Text("\(sub.currency) \(sub.price)")
                                                 .font(.appCallout.weight(.semibold))
-                                                .foregroundStyle(.appTextPrimary)
+                                                .foregroundStyle(Color.appTextPrimary)
                                         }
                                         .padding(AppSpacing.md)
                                         .background {
@@ -168,16 +168,16 @@ struct RenewalCalendarView: View {
         let renewalCount = renewals(for: date).count
 
         Button {
-            withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+            withAnimation(Animation.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0)) {
                 selectedDate = isSelected ? nil : date
             }
         } label: {
             VStack(spacing: 2) {
                 ZStack {
                     if isSelected {
-                        Circle().fill(.brand).frame(width: 34, height: 34)
+                        Circle().fill(Color.brand).frame(width: 34, height: 34)
                     } else if isToday {
-                        Circle().fill(.brand.opacity(0.12)).frame(width: 34, height: 34)
+                        Circle().fill(Color.brand.opacity(0.12)).frame(width: 34, height: 34)
                     }
                     Text("\(calendar.component(.day, from: date))")
                         .font(.appCallout)

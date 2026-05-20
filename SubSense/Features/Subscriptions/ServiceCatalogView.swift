@@ -31,7 +31,7 @@ struct ServiceCatalogView: View {
                         ProgressView()
                         Text(String(localized: "catalog.loading"))
                             .font(.appFootnote)
-                            .foregroundStyle(.appTextMuted)
+                            .foregroundStyle(Color.appTextMuted)
                     }
                 } else if sortedCategories.isEmpty {
                     EmptyState(
@@ -80,7 +80,7 @@ struct ServiceCatalogView: View {
                 Spacer().frame(height: AppSpacing.xl3)
             }
             .padding(.top, AppSpacing.sm)
-            .animation(.spring(response: 0.4, dampingFraction: 0.8), value: searchText)
+            .animation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0), value: searchText)
         }
     }
 
@@ -98,14 +98,14 @@ struct ServiceCatalogView: View {
                 )
                 Text(item.name)
                     .font(.appCaption)
-                    .foregroundStyle(.appTextMuted)
+                    .foregroundStyle(Color.appTextMuted)
                     .lineLimit(2)
                     .multilineTextAlignment(.center)
                     .frame(width: 64)
             }
         }
         .buttonStyle(.plain)
-        .sensoryFeedback(.impact(.soft), trigger: item.id)
+        .sensoryFeedback(.impact(flexibility: .soft), trigger: item.id)
     }
 
     // MARK: - Load

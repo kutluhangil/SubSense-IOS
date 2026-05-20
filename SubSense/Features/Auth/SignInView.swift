@@ -35,13 +35,13 @@ struct SignInView: View {
 
                 // Ambient background orb
                 Circle()
-                    .fill(.brand.opacity(0.07))
+                    .fill(Color.brand.opacity(0.07))
                     .frame(width: 320, height: 320)
                     .offset(x: 110, y: -220)
                     .blur(radius: 70)
 
                 Circle()
-                    .fill(.brandDeep.opacity(0.05))
+                    .fill(Color.brandDeep.opacity(0.05))
                     .frame(width: 200, height: 200)
                     .offset(x: -120, y: 300)
                     .blur(radius: 50)
@@ -62,7 +62,7 @@ struct SignInView: View {
                                         )
                                     )
                                     .frame(width: 44, height: 44)
-                                    .shadow(color: .brand.opacity(0.35), radius: 10, x: 0, y: 4)
+                                    .shadow(color: Color.brand.opacity(0.35), radius: 10, x: 0, y: 4)
 
                                 Image(systemName: "creditcard.and.123")
                                     .font(.system(size: 20, weight: .medium))
@@ -72,11 +72,11 @@ struct SignInView: View {
 
                             Text(String(localized: "auth.signIn.title"))
                                 .font(.display)
-                                .foregroundStyle(.appTextPrimary)
+                                .foregroundStyle(Color.appTextPrimary)
 
                             Text(String(localized: "auth.signIn.subtitle"))
                                 .font(.appBody)
-                                .foregroundStyle(.appTextMuted)
+                                .foregroundStyle(Color.appTextMuted)
                         }
                         .padding(.top, AppSpacing.xl3)
 
@@ -93,12 +93,12 @@ struct SignInView: View {
                                     .textInputAutocapitalization(.never)
                                     .autocorrectionDisabled()
                                     .font(.appBody)
-                                    .foregroundStyle(.appTextPrimary)
+                                    .foregroundStyle(Color.appTextPrimary)
                                     .focused($focusedField, equals: .email)
                                     .submitLabel(.next)
                                     .onSubmit { focusedField = .password }
                                     .onChange(of: focusedField) { _, new in
-                                        withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+                                        withAnimation(Animation.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0)) {
                                             emailFocused = new == .email
                                         }
                                     }
@@ -119,7 +119,7 @@ struct SignInView: View {
                                     }
                                     .textContentType(.password)
                                     .font(.appBody)
-                                    .foregroundStyle(.appTextPrimary)
+                                    .foregroundStyle(Color.appTextPrimary)
                                     .focused($focusedField, equals: .password)
                                     .submitLabel(.go)
                                     .onSubmit {
@@ -127,19 +127,19 @@ struct SignInView: View {
                                         Task { await signIn() }
                                     }
                                     .onChange(of: focusedField) { _, new in
-                                        withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+                                        withAnimation(Animation.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0)) {
                                             passwordFocused = new == .password
                                         }
                                     }
 
                                     Button {
-                                        withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+                                        withAnimation(Animation.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0)) {
                                             showPassword.toggle()
                                         }
                                     } label: {
                                         Image(systemName: showPassword ? "eye.slash.fill" : "eye.fill")
                                             .font(.system(size: 16, weight: .light))
-                                            .foregroundStyle(.appTextMuted)
+                                            .foregroundStyle(Color.appTextMuted)
                                             .frame(width: 24, height: 24)
                                             .contentTransition(.symbolEffect(.replace))
                                     }
@@ -151,11 +151,11 @@ struct SignInView: View {
                         if let error = errorMessage {
                             HStack(spacing: AppSpacing.sm) {
                                 Image(systemName: "exclamationmark.circle.fill")
-                                    .foregroundStyle(.appDanger)
+                                    .foregroundStyle(Color.appDanger)
                                     .font(.system(size: 15))
                                 Text(error)
                                     .font(.appFootnote)
-                                    .foregroundStyle(.appDanger)
+                                    .foregroundStyle(Color.appDanger)
                                     .fixedSize(horizontal: false, vertical: true)
                                 Spacer()
                             }
@@ -188,7 +188,7 @@ struct SignInView: View {
                             } label: {
                                 Text(String(localized: "auth.forgotPassword"))
                                     .font(.appCallout)
-                                    .foregroundStyle(.brand)
+                                    .foregroundStyle(Color.brand)
                                     .frame(maxWidth: .infinity, alignment: .center)
                             }
                         }
@@ -211,12 +211,12 @@ struct SignInView: View {
                             HStack(spacing: AppSpacing.xs) {
                                 Text(String(localized: "auth.noAccount"))
                                     .font(.appCallout)
-                                    .foregroundStyle(.appTextMuted)
+                                    .foregroundStyle(Color.appTextMuted)
                                 Button(String(localized: "auth.switchToSignUp")) {
                                     switchToSignUp()
                                 }
                                 .font(.appCallout.weight(.semibold))
-                                .foregroundStyle(.brand)
+                                .foregroundStyle(Color.brand)
                             }
                             .frame(maxWidth: .infinity, alignment: .center)
                         }
@@ -228,12 +228,12 @@ struct SignInView: View {
             .opacity(contentOpacity)
             .offset(y: contentOffset)
             .onAppear {
-                withAnimation(.spring(response: 0.5, dampingFraction: 0.8).delay(0.05)) {
+                withAnimation(.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0).delay(0.05)) {
                     contentOpacity = 1
                     contentOffset = 0
                 }
             }
-            .animation(.spring(response: 0.4, dampingFraction: 0.8), value: errorMessage)
+            .animation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0), value: errorMessage)
             .sheet(isPresented: $showForgotPassword) {
                 ResetPasswordView()
             }
@@ -251,7 +251,7 @@ struct SignInView: View {
         VStack(alignment: .leading, spacing: AppSpacing.xs) {
             Text(label)
                 .font(.appCaption)
-                .foregroundStyle(.appTextMuted)
+                .foregroundStyle(Color.appTextMuted)
                 .tracking(0.6)
                 .textCase(.uppercase)
 
@@ -282,7 +282,7 @@ struct SignInView: View {
                 .foregroundStyle(Color.appBorder)
             Text(String(localized: "general.or"))
                 .font(.appFootnote)
-                .foregroundStyle(.appTextMuted)
+                .foregroundStyle(Color.appTextMuted)
             Rectangle()
                 .frame(height: 1)
                 .foregroundStyle(Color.appBorder)
@@ -298,7 +298,7 @@ struct SignInView: View {
             try await authStore.signIn(email: email, password: password)
             successTrigger.toggle()
         } catch {
-            withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+            withAnimation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
                 errorMessage = error.localizedDescription
             }
         }
@@ -320,7 +320,7 @@ struct SignInView: View {
                 try await authStore.signInWithApple(idToken: token, nonce: "")
                 successTrigger.toggle()
             } catch {
-                withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                withAnimation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
                     errorMessage = error.localizedDescription
                 }
             }
@@ -330,7 +330,7 @@ struct SignInView: View {
             // ASAuthorizationError.canceled is not an error worth surfacing
             let asError = error as? ASAuthorizationError
             guard asError?.code != .canceled else { return }
-            withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+            withAnimation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
                 errorMessage = error.localizedDescription
             }
         }

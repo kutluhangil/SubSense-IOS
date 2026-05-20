@@ -31,7 +31,7 @@ struct VerifyEmailView: View {
 
             // Ambient glow behind icon
             Circle()
-                .fill(.brand.opacity(0.07))
+                .fill(Color.brand.opacity(0.07))
                 .frame(width: 280, height: 280)
                 .offset(y: -120)
                 .blur(radius: 60)
@@ -43,7 +43,7 @@ struct VerifyEmailView: View {
                 ZStack {
                     // Outer pulse ring
                     Circle()
-                        .fill(.brand.opacity(0.09))
+                        .fill(Color.brand.opacity(0.09))
                         .frame(width: 148, height: 148)
                         .scaleEffect(pulseScale)
 
@@ -62,12 +62,12 @@ struct VerifyEmailView: View {
                                 )
                         }
                         .frame(width: 104, height: 104)
-                        .shadow(color: .brand.opacity(0.22), radius: 24, x: 0, y: 10)
+                        .shadow(color: Color.brand.opacity(0.22), radius: 24, x: 0, y: 10)
 
                     Image(systemName: "envelope.badge.fill")
                         .font(.system(size: 46, weight: .thin))
                         .symbolRenderingMode(.hierarchical)
-                        .foregroundStyle(.brand)
+                        .foregroundStyle(Color.brand)
                 }
                 .scaleEffect(envelopeScale)
                 .opacity(envelopeOpacity)
@@ -76,23 +76,23 @@ struct VerifyEmailView: View {
                 VStack(spacing: AppSpacing.md) {
                     Text(String(localized: "auth.verifyEmail.title"))
                         .font(.appTitle)
-                        .foregroundStyle(.appTextPrimary)
+                        .foregroundStyle(Color.appTextPrimary)
                         .multilineTextAlignment(.center)
 
                     VStack(spacing: AppSpacing.sm) {
                         Text(String(localized: "auth.verifyEmail.body"))
                             .font(.appBody)
-                            .foregroundStyle(.appTextMuted)
+                            .foregroundStyle(Color.appTextMuted)
                             .multilineTextAlignment(.center)
 
                         Text(email)
                             .font(.appBody.weight(.semibold))
-                            .foregroundStyle(.brand)
+                            .foregroundStyle(Color.brand)
                     }
 
                     Text(String(localized: "auth.verifyEmail.instruction"))
                         .font(.appFootnote)
-                        .foregroundStyle(.appTextMuted)
+                        .foregroundStyle(Color.appTextMuted)
                         .multilineTextAlignment(.center)
                         .padding(.horizontal, AppSpacing.base)
                 }
@@ -103,10 +103,10 @@ struct VerifyEmailView: View {
                 if showError {
                     HStack(spacing: AppSpacing.sm) {
                         Image(systemName: "exclamationmark.circle.fill")
-                            .foregroundStyle(.appDanger)
+                            .foregroundStyle(Color.appDanger)
                         Text(errorMessage)
                             .font(.appFootnote)
-                            .foregroundStyle(.appDanger)
+                            .foregroundStyle(Color.appDanger)
                         Spacer()
                     }
                     .padding(AppSpacing.md)
@@ -150,7 +150,7 @@ struct VerifyEmailView: View {
                     } label: {
                         Text(String(localized: "auth.useDifferentAccount"))
                             .font(.appFootnote)
-                            .foregroundStyle(.appTextMuted)
+                            .foregroundStyle(Color.appTextMuted)
                             .padding(.vertical, AppSpacing.sm)
                     }
                 }
@@ -160,10 +160,10 @@ struct VerifyEmailView: View {
                 Spacer()
             }
         }
-        .animation(.spring(response: 0.4, dampingFraction: 0.8), value: showError)
-        .animation(.spring(response: 0.4, dampingFraction: 0.8), value: resendCooldown)
+        .animation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0), value: showError)
+        .animation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0), value: resendCooldown)
         .onAppear {
-            withAnimation(.spring(response: 0.65, dampingFraction: 0.72).delay(0.1)) {
+            withAnimation(.spring(response: 0.65, dampingFraction: 0.72, blendDuration: 0).delay(0.1)) {
                 envelopeScale = 1
                 envelopeOpacity = 1
             }
@@ -206,7 +206,7 @@ struct VerifyEmailView: View {
             try await AuthService().resendVerificationEmail(email: email)
             startResendCooldown()
         } catch {
-            withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+            withAnimation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
                 errorMessage = error.localizedDescription
                 showError = true
             }

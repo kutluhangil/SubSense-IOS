@@ -30,7 +30,6 @@ final class CurrencyService {
 
             let response: RatesResponse = try await SupabaseClientManager.shared.functions
                 .invoke("exchange-rates")
-                .value
 
             rates = response.rates
             lastUpdated = Date()

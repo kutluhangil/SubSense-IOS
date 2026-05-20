@@ -25,7 +25,7 @@ struct ResetPasswordView: View {
 
                 // Ambient orb
                 Circle()
-                    .fill(.brand.opacity(0.07))
+                    .fill(Color.brand.opacity(0.07))
                     .frame(width: 280, height: 280)
                     .offset(x: 80, y: -160)
                     .blur(radius: 70)
@@ -34,7 +34,7 @@ struct ResetPasswordView: View {
                     // MARK: Icon
                     ZStack {
                         Circle()
-                            .fill(.brand.opacity(0.08))
+                            .fill(Color.brand.opacity(0.08))
                             .frame(width: 104, height: 104)
                             .blur(radius: 16)
 
@@ -59,12 +59,12 @@ struct ResetPasswordView: View {
                                 color: sent ? Color.appSuccess.opacity(0.2) : Color.brand.opacity(0.18),
                                 radius: 18, x: 0, y: 6
                             )
-                            .animation(.spring(response: 0.4, dampingFraction: 0.8), value: sent)
+                            .animation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0), value: sent)
 
                         Image(systemName: sent ? "checkmark.circle.fill" : "lock.rotation")
                             .font(.system(size: 38, weight: .thin))
                             .symbolRenderingMode(.hierarchical)
-                            .foregroundStyle(sent ? .appSuccess : .brand)
+                            .foregroundStyle(sent ? Color.appSuccess : Color.brand)
                             .contentTransition(.symbolEffect(.replace))
                     }
                     .padding(.top, AppSpacing.xl3)
@@ -75,19 +75,19 @@ struct ResetPasswordView: View {
                              ? String(localized: "auth.resetSent.title")
                              : String(localized: "auth.resetPassword.title"))
                             .font(.appTitle)
-                            .foregroundStyle(.appTextPrimary)
+                            .foregroundStyle(Color.appTextPrimary)
                             .multilineTextAlignment(.center)
                             .contentTransition(.opacity)
-                            .animation(.spring(response: 0.4, dampingFraction: 0.8), value: sent)
+                            .animation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0), value: sent)
 
                         Text(sent
                              ? String(localized: "auth.resetSent.body")
                              : String(localized: "auth.resetPassword.body"))
                             .font(.appBody)
-                            .foregroundStyle(.appTextMuted)
+                            .foregroundStyle(Color.appTextMuted)
                             .multilineTextAlignment(.center)
                             .contentTransition(.opacity)
-                            .animation(.spring(response: 0.4, dampingFraction: 0.8), value: sent)
+                            .animation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0), value: sent)
                     }
                     .padding(.horizontal, AppSpacing.xl)
 
@@ -96,7 +96,7 @@ struct ResetPasswordView: View {
                         VStack(alignment: .leading, spacing: AppSpacing.xs) {
                             Text(String(localized: "auth.email"))
                                 .font(.appCaption)
-                                .foregroundStyle(.appTextMuted)
+                                .foregroundStyle(Color.appTextMuted)
                                 .tracking(0.6)
                                 .textCase(.uppercase)
 
@@ -106,7 +106,7 @@ struct ResetPasswordView: View {
                                 .textInputAutocapitalization(.never)
                                 .autocorrectionDisabled()
                                 .font(.appBody)
-                                .foregroundStyle(.appTextPrimary)
+                                .foregroundStyle(Color.appTextPrimary)
                                 .focused($isEmailFocused)
                                 .submitLabel(.send)
                                 .onSubmit {
@@ -114,7 +114,7 @@ struct ResetPasswordView: View {
                                     Task { await sendReset() }
                                 }
                                 .onChange(of: isEmailFocused) { _, focused in
-                                    withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+                                    withAnimation(Animation.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0)) {
                                         emailFocusHighlight = focused
                                     }
                                 }
@@ -142,11 +142,11 @@ struct ResetPasswordView: View {
                         if let error {
                             HStack(spacing: AppSpacing.sm) {
                                 Image(systemName: "exclamationmark.circle.fill")
-                                    .foregroundStyle(.appDanger)
+                                    .foregroundStyle(Color.appDanger)
                                     .font(.system(size: 14))
                                 Text(error)
                                     .font(.appFootnote)
-                                    .foregroundStyle(.appDanger)
+                                    .foregroundStyle(Color.appDanger)
                                     .fixedSize(horizontal: false, vertical: true)
                                 Spacer()
                             }
@@ -190,18 +190,18 @@ struct ResetPasswordView: View {
             .opacity(contentOpacity)
             .offset(y: contentOffset)
             .onAppear {
-                withAnimation(.spring(response: 0.5, dampingFraction: 0.8).delay(0.05)) {
+                withAnimation(.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0).delay(0.05)) {
                     contentOpacity = 1
                     contentOffset = 0
                 }
             }
-            .animation(.spring(response: 0.4, dampingFraction: 0.8), value: sent)
-            .animation(.spring(response: 0.4, dampingFraction: 0.8), value: error)
+            .animation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0), value: sent)
+            .animation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0), value: error)
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button(String(localized: "general.cancel")) { dismiss() }
-                        .foregroundStyle(.brand)
+                        .foregroundStyle(Color.brand)
                 }
             }
         }
@@ -214,12 +214,12 @@ struct ResetPasswordView: View {
         error = nil
         do {
             try await authStore.resetPassword(email: email)
-            withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+            withAnimation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
                 sent = true
             }
             successTrigger.toggle()
         } catch {
-            withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+            withAnimation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
                 self.error = error.localizedDescription
             }
         }

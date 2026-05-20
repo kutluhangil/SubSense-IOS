@@ -10,12 +10,12 @@ struct StatChip: View {
         VStack(alignment: alignment, spacing: AppSpacing.xs) {
             Text(value)
                 .font(valueFont)
-                .foregroundStyle(.appTextPrimary)
+                .foregroundStyle(Color.appTextPrimary)
                 .contentTransition(.numericText())
 
             Text(label)
                 .font(.appCaption)
-                .foregroundStyle(.appTextMuted)
+                .foregroundStyle(Color.appTextMuted)
         }
     }
 }

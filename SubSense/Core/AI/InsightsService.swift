@@ -53,7 +53,6 @@ final class InsightsService {
 
         let response: InsightsResponse = try await client.functions
             .invoke("ai-insights", options: .init(body: request))
-            .value
 
         return response.insights.map { raw in
             AIInsight(

@@ -28,13 +28,13 @@ struct SettingsView: View {
                         } label: {
                             HStack {
                                 Label(String(localized: "settings.currency"), systemImage: "dollarsign.circle")
-                                    .foregroundStyle(.appTextPrimary)
+                                    .foregroundStyle(Color.appTextPrimary)
                                 Spacer()
                                 Text(profileRepo.profile?.baseCurrency ?? "USD")
-                                    .foregroundStyle(.appTextMuted)
+                                    .foregroundStyle(Color.appTextMuted)
                                 Image(systemName: "chevron.right")
                                     .font(.appCaption)
-                                    .foregroundStyle(.appTextMuted)
+                                    .foregroundStyle(Color.appTextMuted)
                             }
                         }
                         .buttonStyle(.plain)
@@ -43,7 +43,7 @@ struct SettingsView: View {
                         if let profile = profileRepo.profile {
                             HStack {
                                 Label(String(localized: "settings.language"), systemImage: "globe")
-                                    .foregroundStyle(.appTextPrimary)
+                                    .foregroundStyle(Color.appTextPrimary)
                                 Spacer()
                                 Picker("", selection: Binding(
                                     get: { profile.preferredLanguage },
@@ -63,7 +63,7 @@ struct SettingsView: View {
                         // Appearance
                         HStack {
                             Label(String(localized: "settings.appearance"), systemImage: "paintbrush")
-                                .foregroundStyle(.appTextPrimary)
+                                .foregroundStyle(Color.appTextPrimary)
                             Spacer()
                             Picker("", selection: $colorSchemePreference) {
                                 Text("System").tag("system")
@@ -85,15 +85,15 @@ struct SettingsView: View {
                                     profileRepo.isPro ? "SubSense Pro" : String(localized: "settings.freePlan"),
                                     systemImage: profileRepo.isPro ? "crown.fill" : "person.fill"
                                 )
-                                .foregroundStyle(profileRepo.isPro ? .accent : .appTextPrimary)
+                                .foregroundStyle(profileRepo.isPro ? Color.accent : Color.appTextPrimary)
                                 Spacer()
                                 if !profileRepo.isPro {
                                     Text(String(localized: "settings.upgrade"))
                                         .font(.appCaption.weight(.semibold))
-                                        .foregroundStyle(.brand)
+                                        .foregroundStyle(Color.brand)
                                 } else {
                                     Image(systemName: "checkmark.circle.fill")
-                                        .foregroundStyle(.appSuccess)
+                                        .foregroundStyle(Color.appSuccess)
                                 }
                             }
                         }
@@ -102,7 +102,7 @@ struct SettingsView: View {
                         Button(String(localized: "settings.restorePurchases")) {
                             Task { await restorePurchases() }
                         }
-                        .foregroundStyle(.brand)
+                        .foregroundStyle(Color.brand)
                     }
 
                     // Support
@@ -112,7 +112,7 @@ struct SettingsView: View {
                         Button(String(localized: "settings.rateApp")) {
                             requestAppReview()
                         }
-                        .foregroundStyle(.brand)
+                        .foregroundStyle(Color.brand)
                     }
 
                     // Legal
@@ -172,7 +172,7 @@ struct SettingsView: View {
             } message: {
                 Text(String(localized: "settings.deleteAccount.message"))
             }
-            .sensoryFeedback(.impact(.medium), trigger: signOutTrigger)
+            .sensoryFeedback(.impact, trigger: signOutTrigger)
             .task {
                 if let uid = authStore.userID {
                     try? await profileRepo.fetch(userId: uid)
@@ -191,16 +191,16 @@ struct SettingsView: View {
                     .frame(width: 48, height: 48)
                 Text(profileRepo.profile?.initials ?? "U")
                     .font(.appTitle2)
-                    .foregroundStyle(.brand)
+                    .foregroundStyle(Color.brand)
             }
             VStack(alignment: .leading, spacing: AppSpacing.xs) {
                 Text(profileRepo.profile?.displayName ?? String(localized: "settings.account"))
                     .font(.appCallout)
-                    .foregroundStyle(.appTextPrimary)
+                    .foregroundStyle(Color.appTextPrimary)
                 if let email = authStore.userEmail {
                     Text(email)
                         .font(.appCaption)
-                        .foregroundStyle(.appTextMuted)
+                        .foregroundStyle(Color.appTextMuted)
                 }
             }
         }

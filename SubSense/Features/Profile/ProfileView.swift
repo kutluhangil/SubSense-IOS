@@ -18,16 +18,16 @@ struct ProfileView: View {
                                     .frame(width: 80, height: 80)
                                 Text(profileRepo.profile?.initials ?? "U")
                                     .font(.display)
-                                    .foregroundStyle(.brand)
+                                    .foregroundStyle(Color.brand)
                             }
                             VStack(spacing: AppSpacing.xs) {
                                 Text(profileRepo.profile?.displayName ?? authStore.userEmail ?? "")
                                     .font(.appTitle2)
-                                    .foregroundStyle(.appTextPrimary)
+                                    .foregroundStyle(Color.appTextPrimary)
                                 if let email = authStore.userEmail {
                                     Text(email)
                                         .font(.appFootnote)
-                                        .foregroundStyle(.appTextMuted)
+                                        .foregroundStyle(Color.appTextMuted)
                                 }
                             }
                         }
@@ -37,7 +37,7 @@ struct ProfileView: View {
                         if profileRepo.isPro {
                             Label("SubSense Pro", systemImage: "crown.fill")
                                 .font(.appCallout.weight(.semibold))
-                                .foregroundStyle(.accent)
+                                .foregroundStyle(Color.accent)
                                 .padding(.horizontal, AppSpacing.base)
                                 .padding(.vertical, AppSpacing.sm)
                                 .background(Capsule().fill(Color.accent.opacity(0.12)))

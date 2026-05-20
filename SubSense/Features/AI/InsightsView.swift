@@ -35,94 +35,11 @@ struct InsightsView: View {
                         actionLabel: String(localized: "general.retry")
                     )
                 } else {
-                    ScrollView {
-                        VStack(spacing: AppSpacing.md) {
-                            // Powered-by header
-                            HStack {
-                                Image(systemName: "sparkles")
-                                    .foregroundStyle(.accent)
-                                Text(String(localized: "ai.poweredBy"))
-                                    .font(.appFootnote)
-                                    .foregroundStyle(.appTextMuted)
-                                Text("· \(visibleInsights.count) \(String(localized: "ai.insightsFound"))")
-                                    .font(.appFootnote)
-                                    .foregroundStyle(.appTextMuted)
-                                Spacer()
-                            }
-                            .padding(.horizontal, AppSpacing.base)
-
-                            ForEach(visibleInsights) { insight in
-                                InsightCard(insight: insight) {
-                                    withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
-                                        dismissedIds.insert(insight.id)
-                                    }
-                                }
-                                .padding(.horizontal, AppSpacing.base)
-                                .transition(.asymmetric(
-                                    insertion: .scale(scale: 0.95).combined(with: .opacity),
-                                    removal: .scale(scale: 0.9).combined(with: .opacity)
-                                ))
-                            }
-
-                            // Ask assistant CTA
-                            Button {
-                                showAssistant = true
-                            } label: {
-                                HStack(spacing: AppSpacing.md) {
-                                    ZStack {
-                                        Circle()
-                                            .fill(Color.accent.opacity(0.12))
-                                            .frame(width: 44, height: 44)
-                                        Image(systemName: "message.fill")
-                                            .font(.appCallout)
-                                            .foregroundStyle(.accent)
-                                    }
-                                    VStack(alignment: .leading, spacing: 2) {
-                                        Text(String(localized: "ai.askAssistant"))
-                                            .font(.appCallout.weight(.semibold))
-                                            .foregroundStyle(.appTextPrimary)
-                                        Text(String(localized: "ai.assistant.subtitle"))
-                                            .font(.appCaption)
-                                            .foregroundStyle(.appTextMuted)
-                                    }
-                                    Spacer()
-                                    Image(systemName: "chevron.right")
-                                        .font(.appCaption)
-                                        .foregroundStyle(.appTextMuted)
-                                }
-                                .padding(AppSpacing.base)
-                                .background {
-                                    RoundedRectangle(cornerRadius: AppRadius.card)
-                                        .fill(Color.accent.opacity(0.06))
-                                        .overlay {
-                                            RoundedRectangle(cornerRadius: AppRadius.card)
-                                                .strokeBorder(Color.accent.opacity(0.15), lineWidth: 1)
-                                        }
-                                }
-                            }
-                            .buttonStyle(.plain)
-                            .padding(.horizontal, AppSpacing.base)
-
-                            Spacer().frame(height: AppSpacing.xl4)
-                        }
-                        .padding(.top, AppSpacing.md)
-                    }
+                    insightsScrollView
                 }
             }
             .navigationTitle(String(localized: "ai.insights.title"))
             .navigationBarTitleDisplayMode(.large)
-            .toolbar {
-                ToolbarItem(placement: .primaryAction) {
-                    if profileRepo.isPro {
-                        Button {
-                            Task { await loadInsights() }
-                        } label: {
-                            Image(systemName: "arrow.clockwise")
-                                .foregroundStyle(.brand)
-                        }
-                    }
-                }
-            }
             .sheet(isPresented: $showAssistant) {
                 AssistantChatView()
             }
@@ -138,6 +55,88 @@ struct InsightsView: View {
                 }
             }
         }
+    }
+
+    // MARK: - Insights scroll view
+    private var insightsScrollView: some View {
+        ScrollView {
+            insightsContent
+        }
+    }
+
+    private var insightsContent: some View {
+        VStack(spacing: AppSpacing.md) {
+            HStack {
+                Image(systemName: "sparkles")
+                    .foregroundStyle(Color.accent)
+                Text(String(localized: "ai.poweredBy"))
+                    .font(.appFootnote)
+                    .foregroundStyle(Color.appTextMuted)
+                Text("· \(visibleInsights.count) \(String(localized: "ai.insightsFound"))")
+                    .font(.appFootnote)
+                    .foregroundStyle(Color.appTextMuted)
+                Spacer()
+            }
+            .padding(.horizontal, AppSpacing.base)
+
+            ForEach(visibleInsights) { insight in
+                InsightCard(insight: insight) {
+                    withAnimation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
+                        _ = dismissedIds.insert(insight.id)
+                    }
+                }
+                .padding(.horizontal, AppSpacing.base)
+                .transition(.asymmetric(
+                    insertion: .scale(scale: 0.95).combined(with: .opacity),
+                    removal: .scale(scale: 0.9).combined(with: .opacity)
+                ))
+            }
+
+            assistantCTAButton
+
+            Spacer().frame(height: AppSpacing.xl4)
+        }
+        .padding(.top, AppSpacing.md)
+    }
+
+    private var assistantCTAButton: some View {
+        Button {
+            showAssistant = true
+        } label: {
+            HStack(spacing: AppSpacing.md) {
+                ZStack {
+                    Circle()
+                        .fill(Color.accent.opacity(0.12))
+                        .frame(width: 44, height: 44)
+                    Image(systemName: "message.fill")
+                        .font(.appCallout)
+                        .foregroundStyle(Color.accent)
+                }
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(String(localized: "ai.askAssistant"))
+                        .font(.appCallout.weight(.semibold))
+                        .foregroundStyle(Color.appTextPrimary)
+                    Text(String(localized: "ai.assistant.subtitle"))
+                        .font(.appCaption)
+                        .foregroundStyle(Color.appTextMuted)
+                }
+                Spacer()
+                Image(systemName: "chevron.right")
+                    .font(.appCaption)
+                    .foregroundStyle(Color.appTextMuted)
+            }
+            .padding(AppSpacing.base)
+            .background {
+                RoundedRectangle(cornerRadius: AppRadius.card)
+                    .fill(Color.accent.opacity(0.06))
+                    .overlay {
+                        RoundedRectangle(cornerRadius: AppRadius.card)
+                            .strokeBorder(Color.accent.opacity(0.15), lineWidth: 1)
+                    }
+            }
+        }
+        .buttonStyle(.plain)
+        .padding(.horizontal, AppSpacing.base)
     }
 
     // MARK: - Loading skeleton
@@ -161,17 +160,17 @@ struct InsightsView: View {
             Image(systemName: "sparkles")
                 .font(.system(size: 56, weight: .thin))
                 .symbolRenderingMode(.hierarchical)
-                .foregroundStyle(.accent)
+                .foregroundStyle(Color.accent)
                 .symbolEffect(.pulse, options: .repeating.speed(0.5))
 
             VStack(spacing: AppSpacing.md) {
                 Text(String(localized: "ai.insights.proRequired.title"))
                     .font(.appTitle)
-                    .foregroundStyle(.appTextPrimary)
+                    .foregroundStyle(Color.appTextPrimary)
                     .multilineTextAlignment(.center)
                 Text(String(localized: "ai.insights.proRequired.subtitle"))
                     .font(.appBody)
-                    .foregroundStyle(.appTextMuted)
+                    .foregroundStyle(Color.appTextMuted)
                     .multilineTextAlignment(.center)
             }
 
@@ -228,30 +227,32 @@ struct InsightCard: View {
                     VStack(alignment: .leading, spacing: AppSpacing.xs) {
                         Text(insight.title)
                             .font(.appCallout.weight(.semibold))
-                            .foregroundStyle(.appTextPrimary)
+                            .foregroundStyle(Color.appTextPrimary)
                     }
                     Spacer()
-                    Button(action: onDismiss) {
+                    Button {
+                        onDismiss()
+                    } label: {
                         Image(systemName: "xmark")
                             .font(.appCaption)
-                            .foregroundStyle(.appTextMuted)
+                            .foregroundStyle(Color.appTextMuted)
                             .padding(AppSpacing.sm)
                     }
                 }
 
                 Text(insight.description)
                     .font(.appFootnote)
-                    .foregroundStyle(.appTextMuted)
+                    .foregroundStyle(Color.appTextMuted)
                     .lineSpacing(3)
 
                 if let savings = insight.estimatedSavings {
                     HStack(spacing: AppSpacing.xs) {
                         Image(systemName: "checkmark.circle.fill")
-                            .foregroundStyle(.appSuccess)
+                            .foregroundStyle(Color.appSuccess)
                             .font(.appCaption)
                         Text("Estimated savings: $\(NSDecimalNumber(decimal: savings).stringValue)/year")
                             .font(.appCaption.weight(.semibold))
-                            .foregroundStyle(.appSuccess)
+                            .foregroundStyle(Color.appSuccess)
                     }
                     .padding(.horizontal, AppSpacing.sm)
                     .padding(.vertical, AppSpacing.xs)

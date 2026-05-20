@@ -79,9 +79,9 @@ struct OnboardingView: View {
                 .scaleEffect(glowScale)
                 .opacity(glowOpacity)
                 .offset(y: -80)
-                .animation(.spring(response: 0.6, dampingFraction: 0.7), value: glowScale)
-                .animation(.spring(response: 0.6, dampingFraction: 0.7), value: glowOpacity)
-                .animation(.spring(response: 0.5, dampingFraction: 0.8), value: pageColor)
+                .animation(Animation.spring(response: 0.6, dampingFraction: 0.7, blendDuration: 0), value: glowScale)
+                .animation(Animation.spring(response: 0.6, dampingFraction: 0.7, blendDuration: 0), value: glowOpacity)
+                .animation(Animation.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0), value: pageColor)
 
             // Top-right decorative orb
             Circle()
@@ -89,11 +89,11 @@ struct OnboardingView: View {
                 .frame(width: 220, height: 220)
                 .offset(x: 130, y: -360)
                 .blur(radius: 50)
-                .animation(.spring(response: 0.5, dampingFraction: 0.8), value: pageColor)
+                .animation(Animation.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0), value: pageColor)
 
             // Bottom-left decorative orb
             Circle()
-                .fill(.brand.opacity(0.07))
+                .fill(Color.brand.opacity(0.07))
                 .frame(width: 180, height: 180)
                 .offset(x: -140, y: 320)
                 .blur(radius: 36)
@@ -110,7 +110,7 @@ struct OnboardingView: View {
                 .frame(width: 210, height: 210)
                 .blur(radius: 28)
                 .scaleEffect(glowScale)
-                .animation(.spring(response: 0.5, dampingFraction: 0.8), value: pageColor)
+                .animation(Animation.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0), value: pageColor)
 
             // Glass card
             RoundedRectangle(cornerRadius: AppRadius.card * 2)
@@ -128,15 +128,15 @@ struct OnboardingView: View {
                 }
                 .frame(width: 124, height: 124)
                 .shadow(color: pageColor.opacity(0.28), radius: 32, x: 0, y: 12)
-                .animation(.spring(response: 0.5, dampingFraction: 0.8), value: pageColor)
+                .animation(Animation.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0), value: pageColor)
 
             Image(systemName: currentPage.symbol)
                 .font(.system(size: 54, weight: .light))
                 .symbolRenderingMode(.hierarchical)
                 .foregroundStyle(pageColor)
                 .symbolEffect(.pulse, options: .repeating.speed(0.4))
-                .animation(.spring(response: 0.4, dampingFraction: 0.8), value: currentPage.symbol)
-                .animation(.spring(response: 0.5, dampingFraction: 0.8), value: pageColor)
+                .animation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0), value: currentPage.symbol)
+                .animation(Animation.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0), value: pageColor)
         }
         .scaleEffect(symbolScale)
         .opacity(symbolOpacity)
@@ -149,14 +149,14 @@ struct OnboardingView: View {
         VStack(spacing: AppSpacing.md) {
             Text(currentPage.title)
                 .font(.display)
-                .foregroundStyle(.appTextPrimary)
+                .foregroundStyle(Color.appTextPrimary)
                 .multilineTextAlignment(.center)
                 .offset(y: textOffset)
                 .opacity(textOpacity)
 
             Text(currentPage.subtitle)
                 .font(.appBody)
-                .foregroundStyle(.appTextMuted)
+                .foregroundStyle(Color.appTextMuted)
                 .multilineTextAlignment(.center)
                 .lineSpacing(5)
                 .offset(y: textOffset + 10)
@@ -172,8 +172,8 @@ struct OnboardingView: View {
                 Capsule()
                     .fill(idx == vm.currentPage ? pageColor : pageColor.opacity(0.2))
                     .frame(width: idx == vm.currentPage ? 26 : 8, height: 8)
-                    .animation(.spring(response: 0.4, dampingFraction: 0.8), value: vm.currentPage)
-                    .animation(.spring(response: 0.5, dampingFraction: 0.8), value: pageColor)
+                    .animation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0), value: vm.currentPage)
+                    .animation(Animation.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0), value: pageColor)
             }
         }
     }
@@ -199,13 +199,13 @@ struct OnboardingView: View {
             }
 
             Button {
-                withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                withAnimation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
                     hasSeenOnboarding = true
                 }
             } label: {
                 Text(String(localized: "onboarding.skip"))
                     .font(.appFootnote)
-                    .foregroundStyle(.appTextMuted)
+                    .foregroundStyle(Color.appTextMuted)
                     .padding(.vertical, AppSpacing.sm)
             }
         }
@@ -216,17 +216,17 @@ struct OnboardingView: View {
     // MARK: - Animations
 
     private func animateIn() {
-        withAnimation(.spring(response: 0.65, dampingFraction: 0.7).delay(0.1)) {
+        withAnimation(.spring(response: 0.65, dampingFraction: 0.7, blendDuration: 0).delay(0.1)) {
             symbolScale = 1.0
             symbolOpacity = 1.0
             glowScale = 1.0
             glowOpacity = 1.0
         }
-        withAnimation(.spring(response: 0.55, dampingFraction: 0.8).delay(0.25)) {
+        withAnimation(.spring(response: 0.55, dampingFraction: 0.8, blendDuration: 0).delay(0.25)) {
             textOffset = 0
             textOpacity = 1.0
         }
-        withAnimation(.spring(response: 0.55, dampingFraction: 0.8).delay(0.42)) {
+        withAnimation(.spring(response: 0.55, dampingFraction: 0.8, blendDuration: 0).delay(0.42)) {
             buttonsOffset = 0
             buttonsOpacity = 1.0
         }
@@ -241,7 +241,7 @@ struct OnboardingView: View {
 
     private func animatePageChange() {
         // Quick scale-down and fade on exit
-        withAnimation(.spring(response: 0.3, dampingFraction: 0.9)) {
+        withAnimation(Animation.spring(response: 0.3, dampingFraction: 0.9, blendDuration: 0)) {
             symbolScale = 0.75
             symbolOpacity = 0.4
             textOffset = 18
@@ -249,7 +249,7 @@ struct OnboardingView: View {
         }
 
         // Spring back in on the new page
-        withAnimation(.spring(response: 0.5, dampingFraction: 0.72).delay(0.1)) {
+        withAnimation(.spring(response: 0.5, dampingFraction: 0.72, blendDuration: 0).delay(0.1)) {
             symbolScale = 1.0
             symbolOpacity = 1.0
             textOffset = 0

@@ -41,7 +41,7 @@ struct AnalyticsView: View {
                                         title: range.localizedTitle,
                                         isSelected: selectedRange == range
                                     ) {
-                                        withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+                                        withAnimation(Animation.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0)) {
                                             selectedRange = range
                                         }
                                     }
@@ -103,7 +103,7 @@ struct AnalyticsView: View {
                                                 )
                                                 Text(item.sub.name)
                                                     .font(.appCallout)
-                                                    .foregroundStyle(.appTextPrimary)
+                                                    .foregroundStyle(Color.appTextPrimary)
                                                     .lineLimit(1)
 
                                                 Spacer()
@@ -126,7 +126,7 @@ struct AnalyticsView: View {
                                                     currencyService.formatAmount(item.yearly, currency: baseCurrency) + "/yr"
                                                 )
                                                 .font(.appCaption.weight(.semibold))
-                                                .foregroundStyle(.appTextMuted)
+                                                .foregroundStyle(Color.appTextMuted)
                                                 .frame(width: 72, alignment: .trailing)
                                                 .contentTransition(.numericText())
                                             }
@@ -152,14 +152,14 @@ struct AnalyticsView: View {
                         } label: {
                             HStack {
                                 Image(systemName: "calendar")
-                                    .foregroundStyle(.brand)
+                                    .foregroundStyle(Color.brand)
                                 Text(String(localized: "analytics.viewCalendar"))
                                     .font(.appCallout)
-                                    .foregroundStyle(.brand)
+                                    .foregroundStyle(Color.brand)
                                 Spacer()
                                 Image(systemName: "chevron.right")
                                     .font(.appCaption)
-                                    .foregroundStyle(.appTextMuted)
+                                    .foregroundStyle(Color.appTextMuted)
                             }
                             .padding(AppSpacing.base)
                             .background {

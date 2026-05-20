@@ -80,7 +80,7 @@ struct PaywallView: View {
                                 .frame(width: 100, height: 100)
                             Image(systemName: "sparkles")
                                 .font(.system(size: 44, weight: .thin))
-                                .foregroundStyle(.accent)
+                                .foregroundStyle(Color.accent)
                                 .symbolEffect(.pulse, options: .repeating.speed(0.4))
                         }
                         Text(String(localized: "paywall.title"))
@@ -113,7 +113,7 @@ struct PaywallView: View {
                                 Spacer()
                                 Image(systemName: "checkmark")
                                     .font(.appCaption.weight(.bold))
-                                    .foregroundStyle(.appSuccess)
+                                    .foregroundStyle(Color.appSuccess)
                             }
                         }
                     }
@@ -133,7 +133,7 @@ struct PaywallView: View {
                     VStack(spacing: AppSpacing.sm) {
                         if let yearly = storeKit.yearlyProduct {
                             PlanCard(product: yearly, isSelected: selectedPlan == yearly.id, badge: "Save 37%") {
-                                withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+                                withAnimation(Animation.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0)) {
                                     selectedPlan = yearly.id
                                 }
                             }
@@ -145,7 +145,7 @@ struct PaywallView: View {
                                 badge: "Save 37%",
                                 isSelected: selectedPlan == ProductID.proYearly
                             ) {
-                                withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+                                withAnimation(Animation.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0)) {
                                     selectedPlan = ProductID.proYearly
                                 }
                             }
@@ -153,7 +153,7 @@ struct PaywallView: View {
 
                         if let monthly = storeKit.monthlyProduct {
                             PlanCard(product: monthly, isSelected: selectedPlan == monthly.id, badge: nil) {
-                                withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+                                withAnimation(Animation.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0)) {
                                     selectedPlan = monthly.id
                                 }
                             }
@@ -165,7 +165,7 @@ struct PaywallView: View {
                                 badge: nil,
                                 isSelected: selectedPlan == ProductID.proMonthly
                             ) {
-                                withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
+                                withAnimation(Animation.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0)) {
                                     selectedPlan = ProductID.proMonthly
                                 }
                             }
@@ -196,7 +196,7 @@ struct PaywallView: View {
                                     startPoint: .leading,
                                     endPoint: .trailing
                                 ))
-                                .shadow(color: .brand.opacity(0.4), radius: 16, x: 0, y: 6)
+                                .shadow(color: Color.brand.opacity(0.4), radius: 16, x: 0, y: 6)
                         }
                     }
                     .disabled(isPurchasing)
@@ -229,14 +229,14 @@ struct PaywallView: View {
             }
         }
         .onAppear {
-            withAnimation(.spring(response: 0.5, dampingFraction: 0.8).delay(0.1)) {
+            withAnimation(.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0).delay(0.1)) {
                 headerOpacity = 1
                 headerOffset = 0
             }
-            withAnimation(.spring(response: 0.5, dampingFraction: 0.8).delay(0.25)) {
+            withAnimation(.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0).delay(0.25)) {
                 featuresOpacity = 1
             }
-            withAnimation(.spring(response: 0.5, dampingFraction: 0.8).delay(0.4)) {
+            withAnimation(.spring(response: 0.5, dampingFraction: 0.8, blendDuration: 0).delay(0.4)) {
                 plansOpacity = 1
             }
         }
@@ -258,32 +258,34 @@ struct PaywallView: View {
         isSelected: Bool,
         action: @escaping () -> Void
     ) -> some View {
-        Button(action: action) {
+        Button {
+            action()
+        } label: {
             HStack {
                 VStack(alignment: .leading, spacing: AppSpacing.xs) {
                     HStack(spacing: AppSpacing.sm) {
                         Text(title)
                             .font(.appCallout.weight(.semibold))
-                            .foregroundStyle(.white)
+                            .foregroundStyle(Color.white)
                         if let badge {
                             Text(badge)
                                 .font(.appCaption.weight(.bold))
-                                .foregroundStyle(.white)
+                                .foregroundStyle(Color.white)
                                 .padding(.horizontal, 6)
                                 .padding(.vertical, 2)
-                                .background(Capsule().fill(.accent))
+                                .background(Capsule().fill(Color.accent))
                         }
                     }
                     if let sub = subprice {
                         Text(sub)
                             .font(.appCaption)
-                            .foregroundStyle(.white.opacity(0.5))
+                            .foregroundStyle(Color.white.opacity(0.5))
                     }
                 }
                 Spacer()
                 Text(price)
                     .font(.appCallout.weight(.bold))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(Color.white)
             }
             .padding(AppSpacing.base)
             .background {
@@ -299,7 +301,7 @@ struct PaywallView: View {
             }
         }
         .buttonStyle(.plain)
-        .animation(.spring(response: 0.3, dampingFraction: 0.8), value: isSelected)
+        .animation(Animation.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0), value: isSelected)
     }
 
     // MARK: - Purchase
@@ -330,30 +332,32 @@ struct PlanCard: View {
     let action: () -> Void
 
     var body: some View {
-        Button(action: action) {
+        Button {
+            action()
+        } label: {
             HStack {
                 VStack(alignment: .leading, spacing: AppSpacing.xs) {
                     HStack(spacing: AppSpacing.sm) {
                         Text(product.displayName)
                             .font(.appCallout.weight(.semibold))
-                            .foregroundStyle(.white)
+                            .foregroundStyle(Color.white)
                         if let badge {
                             Text(badge)
                                 .font(.appCaption.weight(.bold))
-                                .foregroundStyle(.white)
+                                .foregroundStyle(Color.white)
                                 .padding(.horizontal, 6)
                                 .padding(.vertical, 2)
-                                .background(Capsule().fill(.accent))
+                                .background(Capsule().fill(Color.accent))
                         }
                     }
                     Text(product.description)
                         .font(.appCaption)
-                        .foregroundStyle(.white.opacity(0.5))
+                        .foregroundStyle(Color.white.opacity(0.5))
                 }
                 Spacer()
                 Text(product.displayPrice)
                     .font(.appCallout.weight(.bold))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(Color.white)
             }
             .padding(AppSpacing.base)
             .background {
@@ -369,6 +373,6 @@ struct PlanCard: View {
             }
         }
         .buttonStyle(.plain)
-        .animation(.spring(response: 0.3, dampingFraction: 0.8), value: isSelected)
+        .animation(Animation.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0), value: isSelected)
     }
 }

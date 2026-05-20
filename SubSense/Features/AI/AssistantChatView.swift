@@ -54,7 +54,11 @@ struct AssistantChatView: View {
                         }
                         .onChange(of: messages.count) {
                             withAnimation {
-                                proxy.scrollTo(messages.last?.id ?? "typing", anchor: .bottom)
+                                if let lastId = messages.last?.id {
+                                    proxy.scrollTo(lastId, anchor: .bottom)
+                                } else {
+                                    proxy.scrollTo("typing", anchor: .bottom)
+                                }
                             }
                         }
                         .onChange(of: streamingContent) {
@@ -78,7 +82,7 @@ struct AssistantChatView: View {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button(String(localized: "general.close")) { dismiss() }
-                        .foregroundStyle(.brand)
+                        .foregroundStyle(Color.brand)
                 }
             }
             .task {
@@ -104,15 +108,15 @@ struct AssistantChatView: View {
                 Image(systemName: "sparkles")
                     .font(.system(size: 28, weight: .semibold))
                     .symbolRenderingMode(.hierarchical)
-                    .foregroundStyle(.accent)
+                    .foregroundStyle(Color.accent)
                     .symbolEffect(.pulse, options: .repeating.speed(0.4))
             }
             Text(String(localized: "ai.assistant.welcome"))
                 .font(.appTitle2)
-                .foregroundStyle(.appTextPrimary)
+                .foregroundStyle(Color.appTextPrimary)
             Text(String(localized: "ai.assistant.welcomeSubtitle"))
                 .font(.appFootnote)
-                .foregroundStyle(.appTextMuted)
+                .foregroundStyle(Color.appTextMuted)
                 .multilineTextAlignment(.center)
         }
         .padding(.vertical, AppSpacing.xl)
@@ -130,7 +134,7 @@ struct AssistantChatView: View {
                     } label: {
                         Text(suggestion)
                             .font(.appFootnote.weight(.medium))
-                            .foregroundStyle(.brand)
+                            .foregroundStyle(Color.brand)
                             .padding(.horizontal, AppSpacing.md)
                             .padding(.vertical, AppSpacing.sm)
                             .background {
@@ -193,8 +197,8 @@ struct AssistantChatView: View {
                 ZStack {
                     Circle()
                         .fill(inputText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isLoading
-                            ? Color.appSurfaceAlt
-                            : LinearGradient(colors: [.brand, .brandDeep], startPoint: .topLeading, endPoint: .bottomTrailing)
+                            ? AnyShapeStyle(Color.appSurfaceAlt)
+                            : AnyShapeStyle(LinearGradient(colors: [Color.brand, Color.brandDeep], startPoint: .topLeading, endPoint: .bottomTrailing))
                         )
                         .frame(width: 40, height: 40)
 
@@ -209,7 +213,7 @@ struct AssistantChatView: View {
                 }
             }
             .disabled(inputText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || isLoading)
-            .animation(.spring(response: 0.3, dampingFraction: 0.8), value: inputText.isEmpty)
+            .animation(Animation.spring(response: 0.3, dampingFraction: 0.8, blendDuration: 0), value: inputText.isEmpty)
         }
         .padding(.horizontal, AppSpacing.base)
         .padding(.vertical, AppSpacing.sm)
@@ -226,7 +230,7 @@ struct AssistantChatView: View {
         guard !text.isEmpty, !isLoading else { return }
 
         let userMsg = AssistantService.ChatMessage(role: .user, content: text)
-        withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+        withAnimation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
             messages.append(userMsg)
         }
         inputText = ""
@@ -251,7 +255,7 @@ struct AssistantChatView: View {
                 }
                 let assistantMsg = AssistantService.ChatMessage(role: .assistant, content: streamingContent)
                 await MainActor.run {
-                    withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                    withAnimation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
                         messages.append(assistantMsg)
                         streamingContent = ""
                         isLoading = false
@@ -295,14 +299,14 @@ private struct MessageBubble: View {
 
             Text(message.content)
                 .font(.appBody)
-                .foregroundStyle(isUser ? .white : .appTextPrimary)
+                .foregroundStyle(isUser ? .white : Color.appTextPrimary)
                 .padding(.horizontal, AppSpacing.md)
                 .padding(.vertical, AppSpacing.sm)
                 .background {
                     RoundedRectangle(cornerRadius: 18)
                         .fill(isUser
-                            ? LinearGradient(colors: [.brand, .brandDeep], startPoint: .topLeading, endPoint: .bottomTrailing)
-                            : Color.appSurface
+                            ? AnyShapeStyle(LinearGradient(colors: [Color.brand, Color.brandDeep], startPoint: .topLeading, endPoint: .bottomTrailing))
+                            : AnyShapeStyle(Color.appSurface)
                         )
                 }
                 .shadow(color: isUser ? Color.brand.opacity(0.25) : Color.black.opacity(0.05), radius: 6, x: 0, y: 2)
@@ -330,7 +334,7 @@ private struct StreamingBubble: View {
 
             Text(content + "▌")
                 .font(.appBody)
-                .foregroundStyle(.appTextPrimary)
+                .foregroundStyle(Color.appTextPrimary)
                 .padding(.horizontal, AppSpacing.md)
                 .padding(.vertical, AppSpacing.sm)
                 .background {
@@ -366,7 +370,7 @@ private struct TypingIndicator: View {
                         .frame(width: 7, height: 7)
                         .scaleEffect(phase == i ? 1.3 : 0.9)
                         .animation(
-                            .spring(response: 0.4, dampingFraction: 0.6)
+                            .spring(response: 0.4, dampingFraction: 0.6, blendDuration: 0)
                             .repeatForever()
                             .delay(Double(i) * 0.15),
                             value: phase

@@ -9,16 +9,18 @@ struct SectionHeader: View {
         HStack {
             Text(title.uppercased())
                 .font(.appCaption)
-                .foregroundStyle(.appTextMuted)
+                .foregroundStyle(Color.appTextMuted)
                 .tracking(0.5)
 
             Spacer()
 
             if let action = trailingAction, let label = trailingLabel {
-                Button(action: action) {
+                Button {
+                    action()
+                } label: {
                     Text(label)
                         .font(.appCaption)
-                        .foregroundStyle(.brand)
+                        .foregroundStyle(Color.brand)
                 }
             }
         }

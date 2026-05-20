@@ -51,15 +51,15 @@ struct CurrencyPickerSheet: View {
                         VStack(alignment: .leading, spacing: 2) {
                             Text(currency.code)
                                 .font(.appCallout)
-                                .foregroundStyle(.appTextPrimary)
+                                .foregroundStyle(Color.appTextPrimary)
                             Text(currency.name)
                                 .font(.appFootnote)
-                                .foregroundStyle(.appTextMuted)
+                                .foregroundStyle(Color.appTextMuted)
                         }
                         Spacer()
                         if currency.code == selectedCurrency {
                             Image(systemName: "checkmark")
-                                .foregroundStyle(.brand)
+                                .foregroundStyle(Color.brand)
                                 .font(.appCallout.weight(.semibold))
                         }
                     }

@@ -79,11 +79,11 @@ struct UpcomingRenewalRow: View {
             VStack(alignment: .leading, spacing: AppSpacing.xs) {
                 Text(subscription.name)
                     .font(.appCallout)
-                    .foregroundStyle(.appTextPrimary)
+                    .foregroundStyle(Color.appTextPrimary)
                     .lineLimit(1)
                 Text(subscription.cycle.displayName)
                     .font(.appCaption)
-                    .foregroundStyle(.appTextMuted)
+                    .foregroundStyle(Color.appTextMuted)
             }
 
             Spacer()
@@ -117,7 +117,7 @@ struct UpcomingRenewalRow: View {
 
                 Text(currencyService.formatAmount(convertedAmount, currency: currency))
                     .font(.appFootnote.weight(.semibold))
-                    .foregroundStyle(.appTextPrimary)
+                    .foregroundStyle(Color.appTextPrimary)
                     .contentTransition(.numericText())
             }
         }

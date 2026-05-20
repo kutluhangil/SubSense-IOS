@@ -9,13 +9,13 @@ struct AuthFlowView: View {
         switch mode {
         case .signIn:
             SignInView(switchToSignUp: {
-                withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                withAnimation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
                     mode = .signUp
                 }
             })
         case .signUp:
             SignUpView(switchToSignIn: {
-                withAnimation(.spring(response: 0.4, dampingFraction: 0.8)) {
+                withAnimation(Animation.spring(response: 0.4, dampingFraction: 0.8, blendDuration: 0)) {
                     mode = .signIn
                 }
             })

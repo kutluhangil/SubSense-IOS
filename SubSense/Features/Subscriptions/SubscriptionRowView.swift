@@ -65,18 +65,18 @@ struct SubscriptionRowView: View {
             VStack(alignment: .leading, spacing: AppSpacing.xs) {
                 Text(subscription.name)
                     .font(.appCallout)
-                    .foregroundStyle(.appTextPrimary)
+                    .foregroundStyle(Color.appTextPrimary)
                     .lineLimit(1)
 
                 HStack(spacing: AppSpacing.xs) {
                     Text(subscription.category.displayName)
                         .font(.appCaption)
-                        .foregroundStyle(.appTextMuted)
+                        .foregroundStyle(Color.appTextMuted)
 
                     if subscription.daysUntilRenewal >= 0 {
                         Text("·")
                             .font(.appCaption)
-                            .foregroundStyle(.appTextMuted)
+                            .foregroundStyle(Color.appTextMuted)
                         Text(renewalText)
                             .font(.appCaption)
                             .foregroundStyle(renewalColor)
@@ -90,11 +90,11 @@ struct SubscriptionRowView: View {
             VStack(alignment: .trailing, spacing: AppSpacing.xs) {
                 Text(currencyService.formatAmount(convertedMonthly, currency: currency))
                     .font(.appCallout.weight(.semibold))
-                    .foregroundStyle(.appTextPrimary)
+                    .foregroundStyle(Color.appTextPrimary)
                     .contentTransition(.numericText())
                 Text(subscription.cycle.displayName)
                     .font(.appCaption)
-                    .foregroundStyle(.appTextMuted)
+                    .foregroundStyle(Color.appTextMuted)
             }
         }
         .padding(AppSpacing.md)
@@ -152,7 +152,7 @@ struct SubscriptionRowView: View {
         } message: {
             Text(String(localized: "subscription.delete.undone"))
         }
-        .sensoryFeedback(.impact(.soft), trigger: showDeleteConfirm)
+        .sensoryFeedback(.impact(flexibility: .soft), trigger: showDeleteConfirm)
     }
 }
 

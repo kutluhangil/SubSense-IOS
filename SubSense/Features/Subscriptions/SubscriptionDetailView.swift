@@ -84,7 +84,7 @@ struct SubscriptionDetailView: View {
                         }
                     } label: {
                         Image(systemName: "ellipsis.circle")
-                            .foregroundStyle(.brand)
+                            .foregroundStyle(Color.brand)
                     }
                 }
             }
@@ -107,8 +107,8 @@ struct SubscriptionDetailView: View {
             } message: {
                 Text(String(localized: "subscription.delete.permanent"))
             }
-            .sensoryFeedback(.impact(.medium), trigger: deleteTrigger)
-            .sensoryFeedback(.impact(.soft), trigger: inactivateTrigger)
+            .sensoryFeedback(.impact, trigger: deleteTrigger)
+            .sensoryFeedback(.impact(flexibility: .soft), trigger: inactivateTrigger)
             .task {
                 if let uid = profileRepo.profile?.id { _ = uid } // no-op
             }
@@ -132,10 +132,10 @@ struct SubscriptionDetailView: View {
             VStack(spacing: AppSpacing.xs) {
                 Text(subscription.name)
                     .font(.appTitle)
-                    .foregroundStyle(.appTextPrimary)
+                    .foregroundStyle(Color.appTextPrimary)
                 Text(subscription.category.displayName)
                     .font(.appCaption)
-                    .foregroundStyle(.appTextMuted)
+                    .foregroundStyle(Color.appTextMuted)
                 StatusBadge(status: subscription.status)
             }
         }
@@ -150,11 +150,11 @@ struct SubscriptionDetailView: View {
                     VStack(alignment: .leading, spacing: AppSpacing.xs) {
                         Text(formatted(subscription.monthlyEquivalent) + "/\(String(localized: "subscription.perMonth.short"))")
                             .font(.appTitle2)
-                            .foregroundStyle(.appTextPrimary)
+                            .foregroundStyle(Color.appTextPrimary)
                             .contentTransition(.numericText())
                         Text(formatted(subscription.yearlyEquivalent) + "/\(String(localized: "subscription.perYear.short"))")
                             .font(.appFootnote)
-                            .foregroundStyle(.appTextMuted)
+                            .foregroundStyle(Color.appTextMuted)
                             .contentTransition(.numericText())
                     }
                     Spacer()
@@ -162,17 +162,17 @@ struct SubscriptionDetailView: View {
                 Divider().background(Color.appBorder)
                 HStack(spacing: AppSpacing.sm) {
                     Image(systemName: "calendar")
-                        .foregroundStyle(.appTextMuted)
+                        .foregroundStyle(Color.appTextMuted)
                         .font(.appFootnote)
                     Text("\(String(localized: "subscription.nextCharge")): \(subscription.nextDate.formatted(date: .abbreviated, time: .omitted))")
                         .font(.appFootnote)
-                        .foregroundStyle(.appTextMuted)
+                        .foregroundStyle(Color.appTextMuted)
                     Spacer()
                     let days = subscription.daysUntilRenewal
                     if days >= 0 {
                         Text(days == 0 ? "today" : days == 1 ? "tomorrow" : "in \(days) days")
                             .font(.appCaption.weight(.semibold))
-                            .foregroundStyle(days <= 3 ? .appDanger : .appTextMuted)
+                            .foregroundStyle(days <= 3 ? Color.appDanger : Color.appTextMuted)
                     }
                 }
             }
@@ -220,7 +220,7 @@ struct SubscriptionDetailView: View {
                 SectionHeader(title: String(localized: "subscription.notes"))
                 Text(notes)
                     .font(.appBody)
-                    .foregroundStyle(.appTextMuted)
+                    .foregroundStyle(Color.appTextMuted)
                     .padding(.horizontal, AppSpacing.base)
             }
         }
@@ -244,7 +244,7 @@ struct SubscriptionDetailView: View {
             } label: {
                 Text(String(localized: "subscription.delete"))
                     .font(.appCallout)
-                    .foregroundStyle(.appDanger)
+                    .foregroundStyle(Color.appDanger)
                     .frame(maxWidth: .infinity)
                     .frame(height: 56)
                     .background {
@@ -265,13 +265,13 @@ struct SubscriptionDetailView: View {
         VStack(spacing: AppSpacing.xs) {
             Text(value)
                 .font(.appCallout.weight(.semibold))
-                .foregroundStyle(.appTextPrimary)
+                .foregroundStyle(Color.appTextPrimary)
                 .contentTransition(.numericText())
                 .lineLimit(1)
                 .minimumScaleFactor(0.6)
             Text(label)
                 .font(.appCaption)
-                .foregroundStyle(.appTextMuted)
+                .foregroundStyle(Color.appTextMuted)
                 .multilineTextAlignment(.center)
         }
         .frame(maxWidth: .infinity)
