@@ -801,6 +801,38 @@
         }
       }
     },
+    "onboarding.landing.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All your subscriptions.\nUnder control."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tüm abonelikleriniz.\nKontrol altında."
+          }
+        }
+      }
+    },
+    "onboarding.landing.subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Track spending, get AI insights, and never miss a renewal again."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Harcamalarınızı takip edin, yapay zeka öngörüleri alın ve yenilemelerinizi kaçırmayın."
+          }
+        }
+      }
+    },
     "onboarding.screen1.title": {
       "localizations": {
         "en": {
