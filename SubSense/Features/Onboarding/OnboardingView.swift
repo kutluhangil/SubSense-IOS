@@ -1,55 +1,110 @@
 import SwiftUI
 
-// MARK: - Subscription logo data
+// MARK: - Logo data
 
-private struct SubscriptionLogo {
-    let label: String
-    let color: Color
-    let xOffset: CGFloat
-    let yOffset: CGFloat
-    let phaseShift: Double
-    let fontSize: CGFloat
-
-    static let all: [SubscriptionLogo] = [
-        // Row 1 — top
-        SubscriptionLogo(label: "N",     color: Color(hex: "#E50914"), xOffset: -130, yOffset: -135, phaseShift: 0.00, fontSize: 24),
-        SubscriptionLogo(label: "♪",     color: Color(hex: "#1DB954"), xOffset:    0, yOffset: -158, phaseShift: 0.70, fontSize: 22),
-        SubscriptionLogo(label: "D+",    color: Color(hex: "#113CCF"), xOffset:  130, yOffset: -135, phaseShift: 1.40, fontSize: 18),
-        // Row 2
-        SubscriptionLogo(label: "TV+",   color: Color(hex: "#4A4A4A"), xOffset: -158, yOffset:  -58, phaseShift: 2.10, fontSize: 14),
-        SubscriptionLogo(label: "▶",     color: Color(hex: "#FF0000"), xOffset:  -56, yOffset:  -72, phaseShift: 0.30, fontSize: 22),
-        SubscriptionLogo(label: "max",   color: Color(hex: "#5822B4"), xOffset:   56, yOffset:  -72, phaseShift: 1.10, fontSize: 15),
-        SubscriptionLogo(label: "prime", color: Color(hex: "#00A8E1"), xOffset:  158, yOffset:  -58, phaseShift: 1.80, fontSize: 12),
-        // Row 3 — middle
-        SubscriptionLogo(label: "hulu",  color: Color(hex: "#1CE783"), xOffset: -122, yOffset:   18, phaseShift: 2.50, fontSize: 13),
-        SubscriptionLogo(label: "☁",     color: Color(hex: "#3693F3"), xOffset:    0, yOffset:    8, phaseShift: 0.50, fontSize: 22),
-        SubscriptionLogo(label: "AI",    color: Color(hex: "#10A37F"), xOffset:  122, yOffset:   18, phaseShift: 1.50, fontSize: 17),
-        // Row 4 — lower
-        SubscriptionLogo(label: "Cc",    color: Color(hex: "#DA3025"), xOffset:  -92, yOffset:   95, phaseShift: 3.00, fontSize: 17),
-        SubscriptionLogo(label: "G·",    color: Color(hex: "#4285F4"), xOffset:   18, yOffset:   92, phaseShift: 2.20, fontSize: 18),
-        SubscriptionLogo(label: "X",     color: Color(hex: "#107C10"), xOffset:  135, yOffset:   92, phaseShift: 0.90, fontSize: 22),
-    ]
+private struct LogoItem {
+    let asset: String
 }
 
-// MARK: - Logo tile
+private let marqueeRow1: [LogoItem] = [
+    LogoItem(asset: "Netflix"),
+    LogoItem(asset: "spotify"),
+    LogoItem(asset: "disney"),
+    LogoItem(asset: "apple_tv_plus"),
+    LogoItem(asset: "apple_music"),
+    LogoItem(asset: "YouTube_Premium_logo"),
+    LogoItem(asset: "amazon_prime"),
+    LogoItem(asset: "HBO_Max_2025"),
+    LogoItem(asset: "Paramount_Plus"),
+    LogoItem(asset: "Hulu_logo_2018"),
+]
 
-private struct LogoTile: View {
-    let logo: SubscriptionLogo
+private let marqueeRow2: [LogoItem] = [
+    LogoItem(asset: "ChatGPT_Logo"),
+    LogoItem(asset: "Adobe_Creative_Cloud_rainbow_icon"),
+    LogoItem(asset: "Microsoft_365"),
+    LogoItem(asset: "Notion_logo"),
+    LogoItem(asset: "Figma_logo"),
+    LogoItem(asset: "Slack_Technologies_Logo"),
+    LogoItem(asset: "canva_seeklogo"),
+    LogoItem(asset: "Zoom_Communications_Logo"),
+    LogoItem(asset: "Claude_AI_logo"),
+    LogoItem(asset: "discord"),
+]
+
+private let marqueeRow3: [LogoItem] = [
+    LogoItem(asset: "twitch"),
+    LogoItem(asset: "duolingo"),
+    LogoItem(asset: "Dropbox_logo_2017"),
+    LogoItem(asset: "Crunchyroll_Logo"),
+    LogoItem(asset: "deezer"),
+    LogoItem(asset: "audible"),
+    LogoItem(asset: "Tidal_service_logo_only"),
+    LogoItem(asset: "Grammarly_logo"),
+    LogoItem(asset: "Perplexity_AI_logo"),
+    LogoItem(asset: "amazon_music"),
+]
+
+// MARK: - Logo card
+
+private struct LogoCard: View {
+    let asset: String
+    var size: CGFloat = 72
 
     var body: some View {
-        Text(logo.label)
-            .font(.system(size: logo.fontSize, weight: .bold, design: .rounded))
-            .foregroundStyle(.white)
-            .frame(width: 58, height: 58)
-            .background {
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(logo.color)
-                    .overlay {
-                        RoundedRectangle(cornerRadius: 16)
-                            .strokeBorder(.white.opacity(0.18), lineWidth: 1)
-                    }
+        RoundedRectangle(cornerRadius: 18)
+            .fill(Color.white)
+            .overlay {
+                Image(asset)
+                    .resizable()
+                    .scaledToFit()
+                    .padding(11)
             }
-            .shadow(color: logo.color.opacity(0.55), radius: 16, x: 0, y: 6)
+            .overlay {
+                RoundedRectangle(cornerRadius: 18)
+                    .strokeBorder(Color.black.opacity(0.06), lineWidth: 1)
+            }
+            .shadow(color: .black.opacity(0.18), radius: 16, x: 0, y: 6)
+            .frame(width: size, height: size)
+    }
+}
+
+// MARK: - Marquee row
+
+private struct MarqueeRow: View {
+    let logos: [LogoItem]
+    let speed: Double
+    let reversed: Bool
+
+    private let cardSize: CGFloat = 72
+    private let cardGap: CGFloat  = 14
+
+    private var rowWidth: CGFloat {
+        CGFloat(logos.count) * (cardSize + cardGap)
+    }
+
+    var body: some View {
+        TimelineView(.animation) { ctx in
+            let t = ctx.date.timeIntervalSinceReferenceDate
+            let scrolled = CGFloat(t * speed).truncatingRemainder(dividingBy: rowWidth)
+            let xOff = reversed ? (scrolled - rowWidth) : -scrolled
+
+            HStack(spacing: cardGap) {
+                rowCards
+                rowCards
+            }
+            .offset(x: xOff)
+        }
+        .frame(maxWidth: .infinity, minHeight: cardSize, maxHeight: cardSize)
+        .clipped()
+    }
+
+    private var rowCards: some View {
+        HStack(spacing: cardGap) {
+            ForEach(logos.indices, id: \.self) { idx in
+                LogoCard(asset: logos[idx].asset)
+            }
+        }
     }
 }
 
@@ -57,55 +112,46 @@ private struct LogoTile: View {
 
 struct OnboardingView: View {
     @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
-    @State private var showSignIn = false
-    @State private var showSignUp = false
+    @State private var showSignIn  = false
+    @State private var showSignUp  = false
 
-    @State private var logoVisible: [Bool] = Array(repeating: false, count: SubscriptionLogo.all.count)
-    @State private var badgeVisible = false
-    @State private var heroVisible = false
+    @State private var marqueeFade:   Double = 0
+    @State private var badgeVisible  = false
+    @State private var heroVisible   = false
     @State private var buttonsVisible = false
-    @State private var glowPulsing = false
-
-    private let logos = SubscriptionLogo.all
+    @State private var glowPulsing   = false
 
     var body: some View {
         ZStack {
             backgroundLayer
 
-            GeometryReader { geo in
-                let cx = geo.size.width / 2
-                let cy = geo.size.height * 0.37
+            // ── Marquee logo section ──────────────────────────────────
+            VStack(spacing: 0) {
+                Color.clear.frame(height: 10)   // peek behind Dynamic Island
 
-                TimelineView(.animation) { context in
-                    let t = context.date.timeIntervalSinceReferenceDate
-
-                    ZStack {
-                        ForEach(logos.indices, id: \.self) { idx in
-                            let logo = logos[idx]
-                            LogoTile(logo: logo)
-                                .position(
-                                    x: cx + logo.xOffset,
-                                    y: cy + logo.yOffset + CGFloat(sin(t * 0.65 + logo.phaseShift)) * 9
-                                )
-                                .scaleEffect(logoVisible[idx] ? 1.0 : 0.25)
-                                .opacity(logoVisible[idx] ? 1.0 : 0.0)
-                                .animation(
-                                    Animation.spring(response: 0.6, dampingFraction: 0.72, blendDuration: 0)
-                                        .delay(Double(idx) * 0.07),
-                                    value: logoVisible[idx]
-                                )
-                        }
-                    }
+                VStack(spacing: 18) {
+                    MarqueeRow(logos: marqueeRow1, speed: 38, reversed: false)
+                    MarqueeRow(logos: marqueeRow2, speed: 29, reversed: true)
+                    MarqueeRow(logos: marqueeRow3, speed: 47, reversed: false)
                 }
-            }
+                .rotation3DEffect(
+                    Angle(degrees: -9),
+                    axis: (x: 1.0, y: 0.0, z: 0.0),
+                    perspective: 0.45
+                )
 
-            // Gradient fade — blends logo cloud into content area
+                Spacer()
+            }
+            .opacity(marqueeFade)
+
+            // ── Gradient fade: logos bleed into content area ──────────
             LinearGradient(
                 stops: [
-                    .init(color: .clear, location: 0.0),
-                    .init(color: .clear, location: 0.36),
-                    .init(color: Color.appBackground, location: 0.62),
-                    .init(color: Color.appBackground, location: 1.0)
+                    .init(color: .clear,                  location: 0.00),
+                    .init(color: .clear,                  location: 0.25),
+                    .init(color: Color.appBackground.opacity(0.6), location: 0.45),
+                    .init(color: Color.appBackground,     location: 0.62),
+                    .init(color: Color.appBackground,     location: 1.00),
                 ],
                 startPoint: .top,
                 endPoint: .bottom
@@ -113,7 +159,7 @@ struct OnboardingView: View {
             .ignoresSafeArea()
             .allowsHitTesting(false)
 
-            // Hero content pinned to bottom
+            // ── Hero content ──────────────────────────────────────────
             heroContent
         }
         .ignoresSafeArea()
@@ -126,45 +172,43 @@ struct OnboardingView: View {
 
     private var backgroundLayer: some View {
         ZStack {
+            // Deep dark base
             LinearGradient(
-                colors: [Color(hex: "#07071A"), Color.appBackground],
+                colors: [Color(hex: "#05051A"), Color.appBackground],
                 startPoint: .top,
-                endPoint: UnitPoint(x: 0.5, y: 0.7)
+                endPoint: UnitPoint(x: 0.5, y: 0.68)
             )
             .ignoresSafeArea()
 
-            // Brand purple ambient glow — top center
-            Circle()
-                .fill(RadialGradient(
-                    colors: [Color.brand.opacity(0.26), Color.clear],
-                    center: .center,
-                    startRadius: 0,
-                    endRadius: 300
-                ))
-                .frame(width: 600, height: 600)
-                .offset(y: -180)
+            // Brand purple — top center
+            RadialGradient(
+                colors: [Color.brand.opacity(0.32), .clear],
+                center: .center,
+                startRadius: 0,
+                endRadius: 280
+            )
+            .frame(width: 560, height: 560)
+            .offset(y: -230)
 
-            // Indigo secondary glow — top left
-            Circle()
-                .fill(RadialGradient(
-                    colors: [Color(hex: "#818CF8").opacity(0.12), Color.clear],
-                    center: .center,
-                    startRadius: 0,
-                    endRadius: 200
-                ))
-                .frame(width: 400, height: 400)
-                .offset(x: -130, y: -100)
+            // Indigo — upper right
+            RadialGradient(
+                colors: [Color(hex: "#818CF8").opacity(0.15), .clear],
+                center: .center,
+                startRadius: 0,
+                endRadius: 200
+            )
+            .frame(width: 400, height: 400)
+            .offset(x: 150, y: -110)
 
-            // Accent gold glow — right side
-            Circle()
-                .fill(RadialGradient(
-                    colors: [Color.accent.opacity(0.09), Color.clear],
-                    center: .center,
-                    startRadius: 0,
-                    endRadius: 200
-                ))
-                .frame(width: 400, height: 400)
-                .offset(x: 140, y: 60)
+            // Teal — upper left
+            RadialGradient(
+                colors: [Color(hex: "#22D3EE").opacity(0.08), .clear],
+                center: .center,
+                startRadius: 0,
+                endRadius: 180
+            )
+            .frame(width: 360, height: 360)
+            .offset(x: -155, y: -55)
         }
     }
 
@@ -174,7 +218,7 @@ struct OnboardingView: View {
         VStack(spacing: 0) {
             Spacer()
 
-            // App badge
+            // App badge with pulsing glow
             ZStack {
                 Circle()
                     .fill(LinearGradient(
@@ -182,14 +226,16 @@ struct OnboardingView: View {
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     ))
-                    .frame(width: 78, height: 78)
+                    .frame(width: 80, height: 80)
                     .shadow(
-                        color: Color.brand.opacity(glowPulsing ? 0.7 : 0.25),
-                        radius: glowPulsing ? 30 : 10,
-                        x: 0,
-                        y: 10
+                        color: Color.brand.opacity(glowPulsing ? 0.72 : 0.22),
+                        radius: glowPulsing ? 32 : 10,
+                        x: 0, y: 10
                     )
-                    .animation(Animation.easeInOut(duration: 1.9).repeatForever(autoreverses: true), value: glowPulsing)
+                    .animation(
+                        Animation.easeInOut(duration: 2.0).repeatForever(autoreverses: true),
+                        value: glowPulsing
+                    )
 
                 Image(systemName: "creditcard.and.123")
                     .font(.system(size: 34, weight: .semibold))
@@ -200,7 +246,7 @@ struct OnboardingView: View {
             .opacity(badgeVisible ? 1.0 : 0.0)
             .padding(.bottom, AppSpacing.xl)
 
-            // Tagline
+            // Headline + subtitle
             let textWidth = UIScreen.main.bounds.width - AppSpacing.xl2 * 2
             VStack(spacing: AppSpacing.md) {
                 Text(String(localized: "onboarding.landing.title"))
@@ -251,30 +297,19 @@ struct OnboardingView: View {
     // MARK: - Entrance animations
 
     private func kickAnimations() {
-        let logoCount = logos.count
-
-        for i in 0..<logoCount {
-            withAnimation(
-                Animation.spring(response: 0.6, dampingFraction: 0.72, blendDuration: 0)
-                    .delay(Double(i) * 0.07 + 0.15)
-            ) {
-                logoVisible[i] = true
-            }
+        withAnimation(.easeOut(duration: 0.9).delay(0.05)) {
+            marqueeFade = 1.0
         }
-
-        let after = Double(logoCount) * 0.07 + 0.3
-
-        withAnimation(.spring(response: 0.65, dampingFraction: 0.7, blendDuration: 0).delay(after)) {
+        withAnimation(.spring(response: 0.65, dampingFraction: 0.7, blendDuration: 0).delay(0.55)) {
             badgeVisible = true
         }
-        withAnimation(.spring(response: 0.55, dampingFraction: 0.8, blendDuration: 0).delay(after + 0.18)) {
+        withAnimation(.spring(response: 0.55, dampingFraction: 0.8, blendDuration: 0).delay(0.75)) {
             heroVisible = true
         }
-        withAnimation(.spring(response: 0.55, dampingFraction: 0.8, blendDuration: 0).delay(after + 0.36)) {
+        withAnimation(.spring(response: 0.55, dampingFraction: 0.8, blendDuration: 0).delay(0.95)) {
             buttonsVisible = true
         }
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + after + 0.5) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.1) {
             glowPulsing = true
         }
     }

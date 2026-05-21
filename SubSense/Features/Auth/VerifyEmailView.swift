@@ -5,6 +5,7 @@ struct VerifyEmailView: View {
 
     @Environment(AuthStore.self) private var authStore
     @Environment(\.dismiss) private var dismiss
+    @AppStorage("hasSeenOnboarding") private var hasSeenOnboarding = false
 
     @State private var isRefreshing = false
     @State private var isResending = false
@@ -140,6 +141,17 @@ struct VerifyEmailView: View {
                     ) {
                         guard resendCooldown == 0 else { return }
                         Task { await resendEmail() }
+                    }
+
+                    // ── Temporary bypass — remove before App Store submission ──
+                    Button {
+                        hasSeenOnboarding = true
+                        authStore.isAuthenticated = true
+                    } label: {
+                        Text("Şimdilik Geç — Uygulamayı Keşfet")
+                            .font(.appFootnote.weight(.medium))
+                            .foregroundStyle(Color.brand)
+                            .padding(.vertical, AppSpacing.sm)
                     }
 
                     Button {
