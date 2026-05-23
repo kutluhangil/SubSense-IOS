@@ -100,6 +100,7 @@ struct AddSubscriptionView: View {
                             VStack(spacing: AppSpacing.xs) {
                                 BrandIcon(
                                     name: item.name,
+                                    assetName: item.logoAsset,
                                     brandColor: Color(hex: item.brandColor),
                                     size: 52,
                                     radius: AppRadius.icon
@@ -328,7 +329,8 @@ struct AddSubscriptionView: View {
     }
 
     private func applyFromCatalog(_ item: ServiceCatalogItem) {
-        let template = item.toSubscriptionDraft()
+        let region = Locale.current.region?.identifier ?? "US"
+        let template = item.toSubscriptionDraft(region: region)
         draft.name      = template.name
         draft.category  = template.category
         draft.brandColor = template.brandColor

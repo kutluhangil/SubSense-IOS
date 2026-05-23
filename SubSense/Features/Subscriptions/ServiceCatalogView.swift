@@ -92,6 +92,7 @@ struct ServiceCatalogView: View {
             VStack(spacing: AppSpacing.xs) {
                 BrandIcon(
                     name: item.name,
+                    assetName: item.logoAsset,
                     brandColor: Color(hex: item.brandColor),
                     size: 56,
                     radius: AppRadius.icon

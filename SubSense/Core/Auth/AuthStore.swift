@@ -21,6 +21,13 @@ final class AuthStore {
     }
 
     private func observeAuthState() {
+        #if DEBUG
+        if UserDefaults.standard.bool(forKey: "devAuthBypass") {
+            isAuthenticated = true
+            isLoading = false
+            return
+        }
+        #endif
         authStateTask = Task {
             for await (event, session) in SupabaseClientManager.shared.auth.authStateChanges {
                 await MainActor.run {

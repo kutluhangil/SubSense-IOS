@@ -7,6 +7,7 @@ struct ServiceCatalogItem: Identifiable, Codable, Hashable {
     let type: String
     let brandColor: String
     let logoSymbol: String
+    let logoAsset: String?
     let defaultPricing: [String: RegionPricing]
 
     struct RegionPricing: Codable, Hashable {

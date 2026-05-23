@@ -1,6 +1,454 @@
 {
   "sourceLanguage": "en",
   "strings": {
+    "add.tab": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ekle"
+          }
+        }
+      }
+    },
+    "ai.askAssistant": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ask AI Assistant"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AI Asistana Sor"
+          }
+        }
+      }
+    },
+    "ai.assistant.inputPlaceholder": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ask anything about your subscriptions…"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abonelikleriniz hakkında bir şey sorun…"
+          }
+        }
+      }
+    },
+    "ai.assistant.placeholder": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ask anything about your subscriptions…"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abonelikleriniz hakkında bir şey sorun…"
+          }
+        }
+      }
+    },
+    "ai.assistant.subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AI-powered subscription insights"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AI destekli abonelik önerileri"
+          }
+        }
+      }
+    },
+    "ai.assistant.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AI Assistant"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AI Asistan"
+          }
+        }
+      }
+    },
+    "ai.assistant.welcome": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ask me anything"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bana istediğinizi sorun"
+          }
+        }
+      }
+    },
+    "ai.assistant.welcomeSubtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "I know all your subscriptions and can help you save money."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tüm aboneliklerinizi biliyorum, tasarruf etmenize yardımcı olabilirim."
+          }
+        }
+      }
+    },
+    "ai.insights.empty.subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add at least 3 subscriptions so AI can find patterns and savings."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AI'nın örüntü bulabilmesi için en az 3 abonelik ekleyin."
+          }
+        }
+      }
+    },
+    "ai.insights.empty.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No insights yet"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Henüz öneri yok"
+          }
+        }
+      }
+    },
+    "ai.insights.proRequired.subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Upgrade to Pro to unlock AI-powered savings insights and the chat assistant."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AI destekli tasarruf önerilerini ve sohbet asistanını açmak için Pro'ya geçin."
+          }
+        }
+      }
+    },
+    "ai.insights.proRequired.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AI Insights is a Pro feature"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AI Önerileri Pro özelliğidir"
+          }
+        }
+      }
+    },
+    "ai.insights.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AI Insights"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AI Önerileri"
+          }
+        }
+      }
+    },
+    "ai.insightsFound": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "insights found"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "öneri bulundu"
+          }
+        }
+      }
+    },
+    "ai.poweredBy": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Powered by Claude"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Claude ile güçlü"
+          }
+        }
+      }
+    },
+    "ai.proOnly": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro subscribers only"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yalnızca Pro üyelere açık"
+          }
+        }
+      }
+    },
+    "analytics.budgets": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Budgets"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bütçeler"
+          }
+        }
+      }
+    },
+    "analytics.byCategory": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "By Category"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kategoriye Göre"
+          }
+        }
+      }
+    },
+    "analytics.calendar": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Calendar"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Takvim"
+          }
+        }
+      }
+    },
+    "analytics.range.12m": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "12 Months"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "12 Ay"
+          }
+        }
+      }
+    },
+    "analytics.range.30d": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 Month"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1 Ay"
+          }
+        }
+      }
+    },
+    "analytics.range.3m": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3 Months"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "3 Ay"
+          }
+        }
+      }
+    },
+    "analytics.range.6m": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "6 Months"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "6 Ay"
+          }
+        }
+      }
+    },
+    "analytics.spending.trend": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Spending Trend"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Harcama Trendi"
+          }
+        }
+      }
+    },
+    "analytics.tab": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analytics"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analiz"
+          }
+        }
+      }
+    },
+    "analytics.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analytics"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Analizler"
+          }
+        }
+      }
+    },
+    "analytics.topServices": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Top Services"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "En Çok Harcanan"
+          }
+        }
+      }
+    },
+    "analytics.viewCalendar": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "View renewal calendar"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yenileme takvimini gör"
+          }
+        }
+      }
+    },
     "auth.continueWithApple": {
       "localizations": {
         "en": {
@@ -593,6 +1041,310 @@
         }
       }
     },
+    "catalog.loading": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loading services…"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hizmetler yükleniyor…"
+          }
+        }
+      }
+    },
+    "catalog.noResults": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No Results"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sonuç Bulunamadı"
+          }
+        }
+      }
+    },
+    "catalog.noResults.subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Try a different search term."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Farklı bir arama terimi deneyin."
+          }
+        }
+      }
+    },
+    "catalog.search": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search services"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hizmet ara"
+          }
+        }
+      }
+    },
+    "dashboard.active": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "active"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "aktif"
+          }
+        }
+      }
+    },
+    "dashboard.activeCount": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d active"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%d aktif"
+          }
+        }
+      }
+    },
+    "dashboard.aiInsight": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AI Insights"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "AI Önerileri"
+          }
+        }
+      }
+    },
+    "dashboard.aiInsight.subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personalized savings & spending analysis"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kişiselleştirilmiş tasarruf ve harcama analizi"
+          }
+        }
+      }
+    },
+    "dashboard.error": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Failed to load subscriptions"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abonelikler yüklenemedi"
+          }
+        }
+      }
+    },
+    "dashboard.months": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "months"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ay"
+          }
+        }
+      }
+    },
+    "dashboard.noRenewals.subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add your first subscription to start tracking."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Takip etmeye başlamak için ilk aboneliğinizi ekleyin."
+          }
+        }
+      }
+    },
+    "dashboard.noRenewals.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No upcoming renewals"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yaklaşan yenileme yok"
+          }
+        }
+      }
+    },
+    "dashboard.seeAll": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "See all %d subscriptions →"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tümünü gör: %d abonelik →"
+          }
+        }
+      }
+    },
+    "dashboard.tab": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Home"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ana Sayfa"
+          }
+        }
+      }
+    },
+    "dashboard.thisMonth": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This Month"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu Ay"
+          }
+        }
+      }
+    },
+    "dashboard.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dashboard"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ana Sayfa"
+          }
+        }
+      }
+    },
+    "dashboard.upNext": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Up Next"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sıradaki"
+          }
+        }
+      }
+    },
+    "dashboard.vsLastMonth": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "vs last month"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "geçen aya kıyasla"
+          }
+        }
+      }
+    },
+    "dashboard.yearlyTotal": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yearly Total"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yıllık Toplam"
+          }
+        }
+      }
+    },
     "general.cancel": {
       "localizations": {
         "en": {
@@ -605,6 +1357,22 @@
           "stringUnit": {
             "state": "translated",
             "value": "İptal"
+          }
+        }
+      }
+    },
+    "general.close": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Close"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kapat"
           }
         }
       }
@@ -689,6 +1457,38 @@
         }
       }
     },
+    "general.ok": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "OK"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tamam"
+          }
+        }
+      }
+    },
+    "general.optional": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "optional"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "isteğe bağlı"
+          }
+        }
+      }
+    },
     "general.or": {
       "localizations": {
         "en": {
@@ -753,6 +1553,38 @@
         }
       }
     },
+    "notifications.renewal": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ renews in %d days"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ %d gün içinde yenileniyor"
+          }
+        }
+      }
+    },
+    "notifications.renewal \\(service) \\(days)": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ %2$d gün içinde yenileniyor"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%1$@ %2$d gün içinde yenileniyor"
+          }
+        }
+      }
+    },
     "onboarding.continueButton": {
       "localizations": {
         "en": {
@@ -785,18 +1617,18 @@
         }
       }
     },
-    "onboarding.screen1.subtitle": {
+    "onboarding.landing.subtitle": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "See every subscription at a glance. No more surprise charges."
+            "value": "Track spending, get AI insights, and never miss a renewal again."
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tüm aboneliklerinize tek bakışta ulaşın. Sürpriz ücretlere son."
+            "value": "Harcamalarınızı takip edin, yapay zeka öngörüleri alın ve yenilemelerinizi kaçırmayın."
           }
         }
       }
@@ -817,18 +1649,18 @@
         }
       }
     },
-    "onboarding.landing.subtitle": {
+    "onboarding.screen1.subtitle": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Track spending, get AI insights, and never miss a renewal again."
+            "value": "See every subscription at a glance. No more surprise charges."
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Harcamalarınızı takip edin, yapay zeka öngörüleri alın ve yenilemelerinizi kaçırmayın."
+            "value": "Tüm aboneliklerinize tek bakışta ulaşın. Sürpriz ücretlere son."
           }
         }
       }
@@ -929,1426 +1761,18 @@
         }
       }
     },
-    "dashboard.title": {
+    "paywall.error.purchaseFailed": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Dashboard"
+            "value": "Purchase Error"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ana Sayfa"
-          }
-        }
-      }
-    },
-    "dashboard.thisMonth": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "This Month"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bu Ay"
-          }
-        }
-      }
-    },
-    "dashboard.vsLastMonth": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "vs last month"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "geçen aya kıyasla"
-          }
-        }
-      }
-    },
-    "dashboard.active": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "active"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "aktif"
-          }
-        }
-      }
-    },
-    "dashboard.yearlyTotal": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yearly Total"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yıllık Toplam"
-          }
-        }
-      }
-    },
-    "dashboard.months": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "months"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ay"
-          }
-        }
-      }
-    },
-    "dashboard.upNext": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Up Next"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sıradaki"
-          }
-        }
-      }
-    },
-    "dashboard.seeAll": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "See all %d subscriptions →"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tümünü gör: %d abonelik →"
-          }
-        }
-      }
-    },
-    "dashboard.activeCount": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%d active"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "%d aktif"
-          }
-        }
-      }
-    },
-    "dashboard.aiInsight": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AI Insights"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AI Önerileri"
-          }
-        }
-      }
-    },
-    "dashboard.aiInsight.subtitle": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Personalized savings & spending analysis"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kişiselleştirilmiş tasarruf ve harcama analizi"
-          }
-        }
-      }
-    },
-    "dashboard.noRenewals.title": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No upcoming renewals"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yaklaşan yenileme yok"
-          }
-        }
-      }
-    },
-    "dashboard.noRenewals.subtitle": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Add your first subscription to start tracking."
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Takip etmeye başlamak için ilk aboneliğinizi ekleyin."
-          }
-        }
-      }
-    },
-    "renewal.today": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "today"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "bugün"
-          }
-        }
-      }
-    },
-    "renewal.tomorrow": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "tomorrow"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "yarın"
-          }
-        }
-      }
-    },
-    "subscription.title": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Subscriptions"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Abonelikler"
-          }
-        }
-      }
-    },
-    "subscription.add.title": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Add Subscription"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Abonelik Ekle"
-          }
-        }
-      }
-    },
-    "subscription.edit.title": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Edit Subscription"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aboneliği Düzenle"
-          }
-        }
-      }
-    },
-    "subscription.empty.title": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "No subscriptions yet"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Henüz abonelik yok"
-          }
-        }
-      }
-    },
-    "subscription.empty.subtitle": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Add your first subscription and start taking control of your spending."
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "İlk aboneliğinizi ekleyin ve harcamalarınızı kontrol altına almaya başlayın."
-          }
-        }
-      }
-    },
-    "subscription.search": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Search subscriptions"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aboneliklerde ara"
-          }
-        }
-      }
-    },
-    "subscription.name": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Name"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ad"
-          }
-        }
-      }
-    },
-    "subscription.namePlaceholder": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "e.g. Netflix, Spotify…"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "örn. Netflix, Spotify…"
-          }
-        }
-      }
-    },
-    "subscription.category": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Category"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kategori"
-          }
-        }
-      }
-    },
-    "subscription.price": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Price"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Fiyat"
-          }
-        }
-      }
-    },
-    "subscription.currency": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Currency"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Para Birimi"
-          }
-        }
-      }
-    },
-    "subscription.cycle.monthly": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Monthly"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aylık"
-          }
-        }
-      }
-    },
-    "subscription.cycle.yearly": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yearly"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yıllık"
-          }
-        }
-      }
-    },
-    "subscription.nextBillingDate": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Next Billing Date"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sonraki Fatura Tarihi"
-          }
-        }
-      }
-    },
-    "subscription.remindMe": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Remind Me"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Beni Hatırlat"
-          }
-        }
-      }
-    },
-    "subscription.notes": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Notes"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Notlar"
-          }
-        }
-      }
-    },
-    "subscription.save": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Save"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kaydet"
-          }
-        }
-      }
-    },
-    "subscription.cancel": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Cancel"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "İptal"
-          }
-        }
-      }
-    },
-    "subscription.delete": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Delete Subscription"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aboneliği Sil"
-          }
-        }
-      }
-    },
-    "subscription.markInactive": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Mark as Inactive"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pasif Olarak İşaretle"
-          }
-        }
-      }
-    },
-    "subscription.perYear.short": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "yr"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "yıl"
-          }
-        }
-      }
-    },
-    "subscription.perMonth.short": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "mo"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "ay"
-          }
-        }
-      }
-    },
-    "subscription.perMonth": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "per month"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "aylık"
-          }
-        }
-      }
-    },
-    "subscription.perYear": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "per year"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "yıllık"
-          }
-        }
-      }
-    },
-    "subscription.nextCharge": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Next charge"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sonraki ödeme"
-          }
-        }
-      }
-    },
-    "subscription.lifetime": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lifetime spent"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Toplam harcanan"
-          }
-        }
-      }
-    },
-    "subscription.renewalHistory": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Renewal History"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yenileme Geçmişi"
-          }
-        }
-      }
-    },
-    "subscription.stats.thisYear": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "This year"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bu yıl"
-          }
-        }
-      }
-    },
-    "subscription.stats.months": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Months active"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aktif ay"
-          }
-        }
-      }
-    },
-    "subscription.stats.lifetime": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Lifetime"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Toplam"
-          }
-        }
-      }
-    },
-    "subscription.status.active": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Active"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Aktif"
-          }
-        }
-      }
-    },
-    "subscription.status.trial": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Trial"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Deneme"
-          }
-        }
-      }
-    },
-    "subscription.status.expiring": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Expiring"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Süresi Doluyor"
-          }
-        }
-      }
-    },
-    "subscription.status.inactive": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Inactive"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pasif"
-          }
-        }
-      }
-    },
-    "subscription.discover.title": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Discover Services"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Servisleri Keşfet"
-          }
-        }
-      }
-    },
-    "subscription.pickPopular": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Quick add"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hızlı ekle"
-          }
-        }
-      }
-    },
-    "general.optional": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "optional"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "isteğe bağlı"
-          }
-        }
-      }
-    },
-    "analytics.title": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Analytics"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Analizler"
-          }
-        }
-      }
-    },
-    "analytics.spending.trend": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Spending Trend"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Harcama Trendi"
-          }
-        }
-      }
-    },
-    "analytics.byCategory": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "By Category"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kategoriye Göre"
-          }
-        }
-      }
-    },
-    "analytics.topServices": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Top Services"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "En Çok Harcanan"
-          }
-        }
-      }
-    },
-    "analytics.budgets": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Budgets"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bütçeler"
-          }
-        }
-      }
-    },
-    "analytics.range.30d": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "1 Month"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "1 Ay"
-          }
-        }
-      }
-    },
-    "analytics.range.3m": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "3 Months"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "3 Ay"
-          }
-        }
-      }
-    },
-    "analytics.range.6m": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "6 Months"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "6 Ay"
-          }
-        }
-      }
-    },
-    "analytics.range.12m": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "12 Months"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "12 Ay"
-          }
-        }
-      }
-    },
-    "ai.insights.title": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AI Insights"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AI Önerileri"
-          }
-        }
-      }
-    },
-    "ai.assistant.placeholder": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ask anything about your subscriptions…"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Abonelikleriniz hakkında bir şey sorun…"
-          }
-        }
-      }
-    },
-    "ai.poweredBy": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Powered by Claude"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Claude ile güçlü"
-          }
-        }
-      }
-    },
-    "ai.askAssistant": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ask AI Assistant"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AI Asistana Sor"
-          }
-        }
-      }
-    },
-    "ai.proOnly": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pro subscribers only"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yalnızca Pro üyelere açık"
-          }
-        }
-      }
-    },
-    "settings.title": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Settings"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Ayarlar"
-          }
-        }
-      }
-    },
-    "settings.preferences": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Preferences"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Tercihler"
-          }
-        }
-      }
-    },
-    "settings.currency": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Currency"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Para Birimi"
-          }
-        }
-      }
-    },
-    "settings.language": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Language"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Dil"
-          }
-        }
-      }
-    },
-    "settings.appearance": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Appearance"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Görünüm"
-          }
-        }
-      }
-    },
-    "settings.notifications": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Notifications"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Bildirimler"
-          }
-        }
-      }
-    },
-    "settings.plan": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Plan"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Plan"
-          }
-        }
-      }
-    },
-    "settings.upgrade": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Upgrade"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Pro'ya Geç"
-          }
-        }
-      }
-    },
-    "settings.restorePurchases": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Restore Purchases"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Satın Almaları Geri Yükle"
-          }
-        }
-      }
-    },
-    "settings.data": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Data"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Veriler"
-          }
-        }
-      }
-    },
-    "settings.exportCSV": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Export CSV"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "CSV Olarak Dışa Aktar"
-          }
-        }
-      }
-    },
-    "settings.importCSV": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Import CSV"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "CSV İçe Aktar"
-          }
-        }
-      }
-    },
-    "settings.support": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Support"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Destek"
-          }
-        }
-      }
-    },
-    "settings.helpCenter": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Help Center"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yardım Merkezi"
-          }
-        }
-      }
-    },
-    "settings.contactSupport": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Contact Support"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Destek ile İletişime Geç"
-          }
-        }
-      }
-    },
-    "settings.rateApp": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Rate SubSense"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "SubSense'i Değerlendir"
-          }
-        }
-      }
-    },
-    "settings.signOut": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Sign Out"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Çıkış Yap"
-          }
-        }
-      }
-    },
-    "settings.deleteAccount": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Delete Account"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Hesabı Sil"
-          }
-        }
-      }
-    },
-    "settings.legal": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Legal"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yasal"
-          }
-        }
-      }
-    },
-    "settings.privacyPolicy": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Privacy Policy"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Gizlilik Politikası"
-          }
-        }
-      }
-    },
-    "settings.termsOfService": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Terms of Service"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Kullanım Koşulları"
-          }
-        }
-      }
-    },
-    "paywall.title": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Unlock SubSense Pro"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "SubSense Pro'yu Aç"
-          }
-        }
-      }
-    },
-    "paywall.subtitle": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Get full control over your subscriptions with AI-powered insights."
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "AI destekli önerilerle aboneliklerinizi tam olarak kontrol altına alın."
+            "value": "Satın Alma Hatası"
           }
         }
       }
@@ -2401,6 +1825,22 @@
         }
       }
     },
+    "paywall.feature.csvImport": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CSV Import"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "CSV İçe Aktarma"
+          }
+        }
+      }
+    },
     "paywall.feature.support": {
       "localizations": {
         "en": {
@@ -2413,22 +1853,6 @@
           "stringUnit": {
             "state": "translated",
             "value": "Öncelikli Destek"
-          }
-        }
-      }
-    },
-    "paywall.plan.yearly": {
-      "localizations": {
-        "en": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yearly"
-          }
-        },
-        "tr": {
-          "stringUnit": {
-            "state": "translated",
-            "value": "Yıllık"
           }
         }
       }
@@ -2449,18 +1873,18 @@
         }
       }
     },
-    "paywall.startTrial": {
+    "paywall.plan.yearly": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Start Free Trial"
+            "value": "Yearly"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ücretsiz Denemeye Başla"
+            "value": "Yıllık"
           }
         }
       }
@@ -2481,418 +1905,530 @@
         }
       }
     },
-    "notifications.renewal": {
+    "paywall.startTrial": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@ renews in %d days"
+            "value": "Start Free Trial"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@ %d gün içinde yenileniyor"
+            "value": "Ücretsiz Denemeye Başla"
           }
         }
       }
     },
-    "ai.assistant.inputPlaceholder": {
+    "paywall.subtitle": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ask anything about your subscriptions…"
+            "value": "Get full control over your subscriptions with AI-powered insights."
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abonelikleriniz hakkında bir şey sorun…"
+            "value": "AI destekli önerilerle aboneliklerinizi tam olarak kontrol altına alın."
           }
         }
       }
     },
-    "ai.assistant.subtitle": {
+    "paywall.title": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "AI-powered subscription insights"
+            "value": "Unlock SubSense Pro"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "AI destekli abonelik önerileri"
+            "value": "SubSense Pro'yu Aç"
           }
         }
       }
     },
-    "ai.assistant.title": {
+    "renewal.today": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "AI Assistant"
+            "value": "today"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "AI Asistan"
+            "value": "bugün"
           }
         }
       }
     },
-    "ai.assistant.welcome": {
+    "renewal.tomorrow": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Ask me anything"
+            "value": "tomorrow"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bana istediğinizi sorun"
+            "value": "yarın"
           }
         }
       }
     },
-    "ai.assistant.welcomeSubtitle": {
+    "settings.account": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "I know all your subscriptions and can help you save money."
+            "value": "Account"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tüm aboneliklerinizi biliyorum, tasarruf etmenize yardımcı olabilirim."
+            "value": "Hesap"
           }
         }
       }
     },
-    "ai.insights.empty.subtitle": {
+    "settings.appearance": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Add at least 3 subscriptions so AI can find patterns and savings."
+            "value": "Appearance"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "AI'nın örüntü bulabilmesi için en az 3 abonelik ekleyin."
+            "value": "Görünüm"
           }
         }
       }
     },
-    "ai.insights.empty.title": {
+    "settings.contactSupport": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "No insights yet"
+            "value": "Contact Support"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Henüz öneri yok"
+            "value": "Destek ile İletişime Geç"
           }
         }
       }
     },
-    "ai.insights.proRequired.subtitle": {
+    "settings.currency": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Upgrade to Pro to unlock AI-powered savings insights and the chat assistant."
+            "value": "Currency"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "AI destekli tasarruf önerilerini ve sohbet asistanını açmak için Pro'ya geçin."
+            "value": "Para Birimi"
           }
         }
       }
     },
-    "ai.insights.proRequired.title": {
+    "settings.data": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "AI Insights is a Pro feature"
+            "value": "Data"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "AI Önerileri Pro özelliğidir"
+            "value": "Veriler"
           }
         }
       }
     },
-    "ai.insightsFound": {
+    "settings.deleteAccount": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "insights found"
+            "value": "Delete Account"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "öneri bulundu"
+            "value": "Hesabı Sil"
           }
         }
       }
     },
-    "analytics.calendar": {
+    "settings.deleteAccount.confirm": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Calendar"
+            "value": "Delete Account"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Takvim"
+            "value": "Hesabı Sil"
           }
         }
       }
     },
-    "analytics.viewCalendar": {
+    "settings.deleteAccount.message": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "View renewal calendar"
+            "value": "All your data will be permanently deleted. This action cannot be undone."
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Yenileme takvimini gör"
+            "value": "Tüm verileriniz kalıcı olarak silinecek. Bu işlem geri alınamaz."
           }
         }
       }
     },
-    "general.close": {
+    "settings.exportCSV": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Close"
+            "value": "Export CSV"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Kapat"
+            "value": "CSV Olarak Dışa Aktar"
           }
         }
       }
     },
-    "notifications.renewal \\(service) \\(days)": {
+    "settings.freePlan": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "%1$@ %2$d gün içinde yenileniyor"
+            "value": "Free Plan"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "%1$@ %2$d gün içinde yenileniyor"
+            "value": "Ücretsiz Plan"
           }
         }
       }
     },
-    "paywall.feature.csvImport": {
+    "settings.helpCenter": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "CSV Import"
+            "value": "Help Center"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "CSV İçe Aktarma"
+            "value": "Yardım Merkezi"
           }
         }
       }
     },
-    "paywall.error.purchaseFailed": {
+    "settings.importCSV": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Purchase Error"
+            "value": "Import CSV"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Satın Alma Hatası"
+            "value": "CSV İçe Aktar"
           }
         }
       }
     },
-    "general.ok": {
+    "settings.language": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "OK"
+            "value": "Language"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Tamam"
+            "value": "Dil"
           }
         }
       }
     },
-    "catalog.loading": {
+    "settings.legal": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Loading services…"
+            "value": "Legal"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hizmetler yükleniyor…"
+            "value": "Yasal"
           }
         }
       }
     },
-    "catalog.noResults": {
+    "settings.notifications": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "No Results"
+            "value": "Notifications"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Sonuç Bulunamadı"
+            "value": "Bildirimler"
           }
         }
       }
     },
-    "catalog.noResults.subtitle": {
+    "settings.plan": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Try a different search term."
+            "value": "Plan"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Farklı bir arama terimi deneyin."
+            "value": "Plan"
           }
         }
       }
     },
-    "catalog.search": {
+    "settings.preferences": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Search services"
+            "value": "Preferences"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Hizmet ara"
+            "value": "Tercihler"
           }
         }
       }
     },
-    "dashboard.error": {
+    "settings.privacyPolicy": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Failed to load subscriptions"
+            "value": "Privacy Policy"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Abonelikler yüklenemedi"
+            "value": "Gizlilik Politikası"
           }
         }
       }
     },
-    "subscription.delete.confirm": {
+    "settings.rateApp": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "Delete %@?"
+            "value": "Rate SubSense"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "%@ silinsin mi?"
+            "value": "SubSense'i Değerlendir"
           }
         }
       }
     },
-    "subscription.delete.undone": {
+    "settings.restorePurchases": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "This action cannot be undone."
+            "value": "Restore Purchases"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bu işlem geri alınamaz."
+            "value": "Satın Almaları Geri Yükle"
           }
         }
       }
     },
-    "subscription.delete.permanent": {
+    "settings.signOut": {
       "localizations": {
         "en": {
           "stringUnit": {
             "state": "translated",
-            "value": "All data for this subscription will be permanently deleted."
+            "value": "Sign Out"
           }
         },
         "tr": {
           "stringUnit": {
             "state": "translated",
-            "value": "Bu aboneliğe ait tüm veriler kalıcı olarak silinecektir."
+            "value": "Çıkış Yap"
+          }
+        }
+      }
+    },
+    "settings.signOut.confirm": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sign Out"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Çıkış Yap"
+          }
+        }
+      }
+    },
+    "settings.support": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Support"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Destek"
+          }
+        }
+      }
+    },
+    "settings.tab": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settings"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ayarlar"
+          }
+        }
+      }
+    },
+    "settings.termsOfService": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Terms of Service"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kullanım Koşulları"
+          }
+        }
+      }
+    },
+    "settings.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settings"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ayarlar"
+          }
+        }
+      }
+    },
+    "settings.upgrade": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Upgrade"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pro'ya Geç"
+          }
+        }
+      }
+    },
+    "subscription.add.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Subscription"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abonelik Ekle"
           }
         }
       }
@@ -2913,6 +2449,390 @@
         }
       }
     },
+    "subscription.cancel": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İptal"
+          }
+        }
+      }
+    },
+    "subscription.category": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Category"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kategori"
+          }
+        }
+      }
+    },
+    "subscription.currency": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Currency"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Para Birimi"
+          }
+        }
+      }
+    },
+    "subscription.cycle.monthly": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Monthly"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aylık"
+          }
+        }
+      }
+    },
+    "subscription.cycle.yearly": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yearly"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yıllık"
+          }
+        }
+      }
+    },
+    "subscription.delete": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete Subscription"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aboneliği Sil"
+          }
+        }
+      }
+    },
+    "subscription.delete.confirm": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete %@?"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%@ silinsin mi?"
+          }
+        }
+      }
+    },
+    "subscription.delete.permanent": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All data for this subscription will be permanently deleted."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu aboneliğe ait tüm veriler kalıcı olarak silinecektir."
+          }
+        }
+      }
+    },
+    "subscription.delete.undone": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This action cannot be undone."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu işlem geri alınamaz."
+          }
+        }
+      }
+    },
+    "subscription.discover.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Discover Services"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Servisleri Keşfet"
+          }
+        }
+      }
+    },
+    "subscription.duplicate.addAnyway": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add Anyway"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yine de Ekle"
+          }
+        }
+      }
+    },
+    "subscription.duplicate.message": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A subscription with this name already exists. Do you want to add it anyway?"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu isimde bir abonelik zaten mevcut. Yine de eklemek istiyor musunuz?"
+          }
+        }
+      }
+    },
+    "subscription.duplicate.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Already Added"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zaten Eklendi"
+          }
+        }
+      }
+    },
+    "subscription.edit.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit Subscription"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aboneliği Düzenle"
+          }
+        }
+      }
+    },
+    "subscription.empty.subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add your first subscription and start taking control of your spending."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "İlk aboneliğinizi ekleyin ve harcamalarınızı kontrol altına almaya başlayın."
+          }
+        }
+      }
+    },
+    "subscription.empty.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No subscriptions yet"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Henüz abonelik yok"
+          }
+        }
+      }
+    },
+    "subscription.filter.active": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Active"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktif"
+          }
+        }
+      }
+    },
+    "subscription.filter.all": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "All"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tümü"
+          }
+        }
+      }
+    },
+    "subscription.filter.inactive": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inactive"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pasif"
+          }
+        }
+      }
+    },
+    "subscription.filter.trial": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trial"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deneme"
+          }
+        }
+      }
+    },
+    "subscription.lifetime": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lifetime spent"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toplam harcanan"
+          }
+        }
+      }
+    },
+    "subscription.markInactive": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mark as Inactive"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pasif Olarak İşaretle"
+          }
+        }
+      }
+    },
+    "subscription.more": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "More"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daha Fazla"
+          }
+        }
+      }
+    },
+    "subscription.name": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Name"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ad"
+          }
+        }
+      }
+    },
     "subscription.name.label": {
       "localizations": {
         "en": {
@@ -2925,6 +2845,486 @@
           "stringUnit": {
             "state": "translated",
             "value": "Ad"
+          }
+        }
+      }
+    },
+    "subscription.namePlaceholder": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "e.g. Netflix, Spotify…"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "örn. Netflix, Spotify…"
+          }
+        }
+      }
+    },
+    "subscription.nextBillingDate": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next Billing Date"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sonraki Fatura Tarihi"
+          }
+        }
+      }
+    },
+    "subscription.nextCharge": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Next charge"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sonraki ödeme"
+          }
+        }
+      }
+    },
+    "subscription.notes": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notes"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notlar"
+          }
+        }
+      }
+    },
+    "subscription.notes.placeholder": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add notes about this subscription..."
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu abonelik hakkında not ekleyin..."
+          }
+        }
+      }
+    },
+    "subscription.perMonth": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "per month"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "aylık"
+          }
+        }
+      }
+    },
+    "subscription.perMonth.short": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "mo"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ay"
+          }
+        }
+      }
+    },
+    "subscription.perYear": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "per year"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "yıllık"
+          }
+        }
+      }
+    },
+    "subscription.perYear.short": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "yr"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "yıl"
+          }
+        }
+      }
+    },
+    "subscription.pickPopular": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Quick add"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Hızlı ekle"
+          }
+        }
+      }
+    },
+    "subscription.price": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Price"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Fiyat"
+          }
+        }
+      }
+    },
+    "subscription.remindMe": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remind Me"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beni Hatırlat"
+          }
+        }
+      }
+    },
+    "subscription.reminder.label": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remind me"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Beni hatırlat"
+          }
+        }
+      }
+    },
+    "subscription.reminder.subtitle": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Get notified before renewal"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yenileme öncesi bildirim al"
+          }
+        }
+      }
+    },
+    "subscription.renewalHistory": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Renewal History"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yenileme Geçmişi"
+          }
+        }
+      }
+    },
+    "subscription.save": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Kaydet"
+          }
+        }
+      }
+    },
+    "subscription.search": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search subscriptions"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aboneliklerde ara"
+          }
+        }
+      }
+    },
+    "subscription.section.active": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Active · %d"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktif · %d"
+          }
+        }
+      }
+    },
+    "subscription.section.expiringSoon": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Expiring Soon"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Yakında Bitiyor"
+          }
+        }
+      }
+    },
+    "subscription.section.trial": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trial · %d"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deneme · %d"
+          }
+        }
+      }
+    },
+    "subscription.seeAll": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "See All"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tümünü Gör"
+          }
+        }
+      }
+    },
+    "subscription.stats.lifetime": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Lifetime"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Toplam"
+          }
+        }
+      }
+    },
+    "subscription.stats.months": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Months active"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktif ay"
+          }
+        }
+      }
+    },
+    "subscription.stats.thisYear": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This year"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bu yıl"
+          }
+        }
+      }
+    },
+    "subscription.status.active": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Active"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Aktif"
+          }
+        }
+      }
+    },
+    "subscription.status.expiring": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Expiring"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Süresi Doluyor"
+          }
+        }
+      }
+    },
+    "subscription.status.inactive": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Inactive"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pasif"
+          }
+        }
+      }
+    },
+    "subscription.status.trial": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Trial"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Deneme"
+          }
+        }
+      }
+    },
+    "subscription.title": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subscriptions"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abonelikler"
+          }
+        }
+      }
+    },
+    "subscriptions.tab": {
+      "localizations": {
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Subscriptions"
+          }
+        },
+        "tr": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Abonelikler"
           }
         }
       }
